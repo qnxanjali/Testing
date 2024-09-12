@@ -52,7 +52,7 @@ async def play_commnd(
     fplay,
 ):
     mystic = await message.reply_text(
-        _["play_2"].format(channel) if channel else random.choice(SACHIN)
+        _["play_2"].format(channel) if channel else _["play_1"]
     )
     plist_id = None
     slider = None
@@ -479,7 +479,7 @@ async def play_music(client, CallbackQuery, _):
     except:
         pass
     mystic = await CallbackQuery.message.reply_text(
-        _["play_2"].format(channel) if channel else random.choice(SACHIN)
+        _["play_2"].format(channel) if channel else _["play_1"]
     )
     try:
         details, track_id = await YouTube.track(vidid, True)
@@ -566,7 +566,7 @@ async def play_playlists_command(client, CallbackQuery, _):
     except:
         pass
     mystic = await CallbackQuery.message.reply_text(
-        _["play_2"].format(channel) if channel else random.choice(SACHIN)
+        _["play_2"].format(channel) if channel else _["play_1"]
     )
     videoid = lyrical.get(videoid)
     video = True if mode == "v" else None
