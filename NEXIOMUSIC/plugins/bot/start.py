@@ -136,7 +136,7 @@ async def start_pm(client, message: Message, _):
         random.choice(HIMANSHI),)
         return await message.reply_photo(
         random.choice(NEXIO),
-            caption=_["start_2"]..format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM, served_users, served_chats)
+            caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM, served_users, served_chats)
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
