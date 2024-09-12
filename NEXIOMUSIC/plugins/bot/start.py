@@ -24,7 +24,7 @@ from NEXIOMUSIC.utils.database import (
 from NEXIOMUSIC.utils.decorators.language import LanguageStart
 from NEXIOMUSIC.utils.formatters import get_readable_time
 from NEXIOMUSIC.utils.inline import help_pannel, private_panel, start_panel
-from config import BANNED_USERS,
+from config import BANNED_USERS
 from strings import get_string
 
 NEXIO = [
