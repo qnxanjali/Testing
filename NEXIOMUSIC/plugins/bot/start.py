@@ -1,19 +1,23 @@
-import time
+import asyncio
 import random
+import time
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message
 from youtubesearchpython.__future__ import VideosSearch
 
 import config
 from NEXIOMUSIC import app
 from NEXIOMUSIC.misc import _boot_
 from NEXIOMUSIC.plugins.sudo.sudoers import sudoers_list
+from NEXIOMUSIC.utils import bot_sys_stats
 from NEXIOMUSIC.utils.database import (
     add_served_chat,
     add_served_user,
     blacklisted_chats,
     get_lang,
+    get_served_chats,
+    get_served_users,
     is_banned_user,
     is_on_off,
 )
@@ -23,43 +27,39 @@ from NEXIOMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
-NEXIO = [
-"https://graph.org/file/e509753cf069de86e52f8.jpg",
-"https://graph.org/file/babb71b593f36549218ce.jpg",
-"https://graph.org/file/4a254d425fb4bf09b7470.jpg",
-"https://graph.org/file/51f37e3c2d4aaff5cf80e.jpg",
-"https://graph.org/file/df01978f91c14b16292f1.jpg",
-"https://graph.org/file/a6e3e9d54c8b2e01787b6.jpg",
-"https://graph.org/file/49bcbc23be713fbe06bac.jpg",
-"https://graph.org/file/809651f9be99ee2bf76ab.jpg",
-"https://graph.org/file/134c9f52f4ba0f7691cd1.jpg",
-"https://graph.org/file/4b5c2174d7f38b4b4abd7.jpg",
-"https://graph.org/file/80feff5bb4a03cf331945.jpg",
-"https://graph.org/file/0379defeb51910065beac.jpg",
-"https://graph.org/file/323b07bccd5e5e1f81f61.jpg",
-"https://graph.org/file/cbe5c31b9ea5220b17969.jpg",
-"https://graph.org/file/1a4e7071b3e64c620e003.jpg",
-"https://graph.org/file/d37dd94135f355f9b6866.jpg",
+HIMANSHI = [
+    "https://graph.org/file/e509753cf069de86e52f8.jpg",
+    "https://graph.org/file/babb71b593f36549218ce.jpg",
+    "https://graph.org/file/4a254d425fb4bf09b7470.jpg",
+    "https://graph.org/file/51f37e3c2d4aaff5cf80e.jpg",
+    "https://graph.org/file/df01978f91c14b16292f1.jpg",
+    "https://graph.org/file/a6e3e9d54c8b2e01787b6.jpg",
+    "https://graph.org/file/49bcbc23be713fbe06bac.jpg",
+    "https://graph.org/file/809651f9be99ee2bf76ab.jpg",
+    "https://graph.org/file/134c9f52f4ba0f7691cd1.jpg",
+    "https://graph.org/file/4b5c2174d7f38b4b4abd7.jpg",
+    "https://graph.org/file/80feff5bb4a03cf331945.jpg",
+    "https://graph.org/file/0379defeb51910065beac.jpg",
+    "https://graph.org/file/323b07bccd5e5e1f81f61.jpg",
+    "https://graph.org/file/cbe5c31b9ea5220b17969.jpg",
+    "https://graph.org/file/1a4e7071b3e64c620e003.jpg",
+    "https://graph.org/file/d37dd94135f355f9b6866.jpg",
 ]
 
-HIMANSHI = [
-"CAACAgUAAxkBAAEBTOxm3z37FlWf1kxXsV3BTowp31kdqgACxgQAAhy8-VUcAzVlizY3bB4E",
-"CAACAgUAAxkBAAEBTO1m3z38AAFqwtrZQybObkNiTfRb3IgAAvcEAAKluvlVe9FSpTsDTXMeBA",
-"CAACAgUAAxkBAAEBTO5m3z38742obNe0uQpIAbHlhxubiwACLgYAAv1CAAFWaHyQYOHYA0geBA",
-"CAACAgUAAxkBAAEBTO9m3z39CV0yJ3u4O0l4R8eDRK4M-AACShEAApTU-VX95QwdgdktKR4E",
-"CAACAgUAAxkBAAEBTPBm3z4C4enyLY9lJUTj1LeDpm8jagACcQcAAguP-FWtU33QgpGchx4E",
-"CAACAgUAAxkBAAEBTPFm3z4HAAHLkU9ZwkbJrVN072TRmmgAAggFAAIVDflVr8X_uhL47dMeBA",
-"CAACAgUAAxkBAAEBTPJm3z4HQ0JG8Sp7yX13bC7pP65zUQACQAUAAm6c-VWHUk18jds0QR4E",
-"CAACAgUAAxkBAAEBTPNm3z4IOTYffxmCBGC2F1KdGgysEQACbwYAAsrM-FUeMFwEto3Wwh4E",
-"CAACAgUAAxkBAAEBTPRm3z4I0uUliFjaCzSMaL74s6slMAACCQkAAsYl8FUAAYs5T97AnKoeBA",
-"CAACAgUAAxkBAAEBTPVm3z4KIEt8kc0LbVCxYl70NFbzqAACgAYAAuho-FUeIpkQA5omrR4E",
-"CAACAgUAAxkBAAEBTPZm3z4LcC1GihptHNJgG0Ik49DIsgACLSEAAjZx8FU1CkmZEPSvSh4E",
-"CAACAgUAAxkBAAEBTPdm3z4OmiYnWUcbosNOjeJuuhzIbQACKwUAAu04-VVzp21EypPZER4E",
-"CAACAgUAAxkBAAEBTPhm3z4OwdJUijX2XPDpBuawUH8mbQACqQkAAhfo-VXKa23jh5-Pgx4E",
-"CAACAgUAAxkBAAEBTPlm3z4S_6wltRVt74t6MbSLPjsUwQACQQQAApTxOFSDZapEqAiD7h4E",
-"CAACAgUAAxkBAAEBTPpm3z4TwyB9m-37IBZx74XUUmNJTQACmQUAAus_OVQKiSsa_Xi9dB4E",
-"CAACAgUAAxkBAAEBTPtm3z4U0QMZtnT-p9R_jVwItVAAAXEAAjsGAAIzEzlUoEWZn974SpseBA",
+STICKERS = [  
+    "CAACAgUAAxkBAAEBWPdm5mPQY_ZkO0ubAVCfrLsQrQ72JQACjAkAArIJGVUWyBghZ-dV-x4E",
+    "CAACAgUAAxkBAAEBWPhm5mPYKcuczEfuCEOMirtaXp-1dwAC4QoAAq16GFWaCSi4wwAB_FgeBA",
+    "CAACAgUAAxkBAAEBWPlm5mPeoSKNaQG_6nnQu-QDS3G9MAACSggAAq3yEVUPJy8Z5F0c4B4E",
+    "CAACAgUAAxkBAAEBWPpm5mPj0JHkFNtPWwF06LYel6I6bAACNwgAAjdAGFXRuQTa8apeoB4E",
+    "CAACAgUAAxkBAAEBWPtm5mPpBAgyaU64RhnCRrMi2N3scgACEQgAAhUSGVUMJ-alW9VubB4E",
+    "CAACAgUAAxkBAAEBWPxm5mP25bpfq3-MphrBt7_QsuXLlAACqQoAAnmvGFWxfDyUI6qURR4E",
+    "CAACAgUAAxkBAAEBWP1m5mP-nQ-yfPDVY_DtmjJKnKFqTwACHgoAAsmuGVVnKBvEVZZMvB4E",
+    "CAACAgUAAxkBAAEBWP5m5mQPxhxaKOaG5xJgUy14_BSBbAACfQkAAghYGFVtSkRZ5FZQXB4E", 
 ]
+
+async def delete_sticker_after_delay(message, delay):
+    await asyncio.sleep(delay)
+    await message.delete()
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
@@ -69,22 +69,23 @@ async def start_pm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            return await message.reply_photo(
-                random.choice(NEXIO),
+            sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
+            asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
+            await message.reply_photo(
+                random.choice(HIMANSHI),
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
-        if name[0:3] == "sud":
+        elif name[0:3] == "sud":
             await sudoers_list(client=client, message=message, _=_)
             if await is_on_off(2):
-                return await app.send_message(
+                await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>❍ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>❍ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>๏ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>๏ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
-            return
-        if name[0:3] == "inf":
+        elif name[0:3] == "inf":
             m = await message.reply_text("🔎")
-            query = (str(name)).replace("info_", "", 1)
+            query = str(name).replace("info_", "", 1)
             query = f"https://www.youtube.com/watch?v={query}"
             results = VideosSearch(query, limit=1)
             for result in (await results.next())["result"]:
@@ -108,47 +109,46 @@ async def start_pm(client, message: Message, _):
                 ]
             )
             await m.delete()
-            await app.send_photo(
+            await app.send_video(
                 chat_id=message.chat.id,
-                photo=thumbnail,
+                video=thumbnail,
                 caption=searched_text,
                 reply_markup=key,
             )
             if await is_on_off(2):
-                return await app.send_message(
+                await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>❍ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>❍ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>๏ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>๏ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
         out = private_panel(_)
-        await message.reply_sticker(
-        random.choice(HIMANSHI),)
-        return await message.reply_photo(
-            random.choice(NEXIO),
-            caption=_["start_2"].format(message.from_user.mention, app.mention),
+        sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
+        asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
+        served_chats = len(await get_served_chats())
+        served_users = len(await get_served_users())
+        UP, CPU, RAM, DISK = await bot_sys_stats()
+        await message.reply_photo(
+            random.choice(HIMANSHI),
+            caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM, served_users, served_chats),
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
-            return await app.send_message(
+            await app.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>❍ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>❍ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>๏ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>๏ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
-
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
-    await message.reply_sticker(
-        random.choice(HIMANSHI),)
-    return await message.reply_photo(
-        random.choice(NEXIO),
+    await message.reply_photo(
+        random.choice(HIMANSHI),
         caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
     )
     return await add_served_chat(message.chat.id)
-
 
 @app.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
@@ -177,12 +177,10 @@ async def welcome(client, message: Message):
                     return await app.leave_chat(message.chat.id)
 
                 out = start_panel(_)
-                await message.reply_sticker(
-                random.choice(HIMANSHI),)
                 await message.reply_photo(
-                    photo=config.START_IMG_URL,
+                    random.choice(HIMANSHI),
                     caption=_["start_3"].format(
-                        message.from_user.first_name,
+                        message.from_user.mention,
                         app.mention,
                         message.chat.title,
                         app.mention,
