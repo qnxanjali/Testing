@@ -48,12 +48,14 @@ class BUTTONS(object):
             InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"NEXIO123"), 
         ]
         ]
-    BBUTTON = [
+    SBUTTON = [
         [
             InlineKeyboardButton("• 1 •", callback_data="NEXIO_CP"),
             InlineKeyboardButton("• 2 •", callback_data="NEXIOO_CP"),
-            InlineKeyboardButton("• 3 •", callback_data="settingsback_helper")
-            InlineKeyboardButton("• 4 •", callback_data="settingsback_helper")
+        ],
+        [
+            InlineKeyboardButton("• 3 •", callback_data="settingsback_helper"),
+            InlineKeyboardButton("• 4 •", callback_data="settingsback_helper"),
             
         ]
         ]
