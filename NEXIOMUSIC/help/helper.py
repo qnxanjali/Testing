@@ -9,6 +9,7 @@ class Helper(object):
 ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ
 
 ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ : /'''
+    HELP_SACHIN = ''' SACHIN PAPA'''
     HELP_ChatGPT = '''CʜᴀᴛGPT
 
 ❍ CʜᴀᴛGPT ᴄᴏᴍᴍᴀɴᴅꜱ:
