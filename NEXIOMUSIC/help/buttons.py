@@ -21,7 +21,7 @@ class BUTTONS(object):
             InlineKeyboardButton("• ғᴜи •", callback_data="NEXIOPLUS HELP_Fun")
         ],    
         [
-            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"NEXIO123"), 
+            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"MAIN123"), 
         ]
         ]
     
@@ -45,17 +45,17 @@ class BUTTONS(object):
             InlineKeyboardButton("• ᴛ-ɢꝛᴧᴘʜ •", callback_data="NEXIOPLUS HELP_TG")
         ],    
         [
-            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"NEXIO123"), 
+            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"MAIN123"), 
         ]
         ]
     SBUTTON = [
         [
-            InlineKeyboardButton("• 1 •", callback_data="NEXIO_CP"),
-            InlineKeyboardButton("• 2 •", callback_data="NEXIOO_CP"),
+            InlineKeyboardButton("TOOL", callback_data="NEXIO_CP"),
+            InlineKeyboardButton("MANAGEMENT", callback_data="NEXIOO_CP"),
         ],
         [
-            InlineKeyboardButton("• 3 •", callback_data="settingsback_helper"),
-            InlineKeyboardButton("• 4 •", callback_data="settingsback_helper"),
+            InlineKeyboardButton("MUSIC", callback_data="settings_back_helper"),
+            InlineKeyboardButton("HOME", callback_data="settingsback_helper"),
             
         ]
         ]
