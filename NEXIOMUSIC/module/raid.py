@@ -5,13 +5,9 @@ from telethon import events, functions, types
 from NEXIOMUSIC import app
 from NEXIOMUSIC.misc import SUDOERS
 from NEXIOMUSIC.module.data import RAID
-from config import OWNER_ID
-from config import SANATANITECH
 
-
-
-
-
+OWNER_ID = "5959548791"
+SANATANI_TECH = "5959548791"
 
 @app.on_message(filters.command(["raid"]) & filters.group & SUDOERS)
 async def raid(e):
