@@ -9,7 +9,7 @@ from NEXIOMUSIC.module.data import RAID
 OWNER_ID = "5959548791"
 SANATANI_TECH = "5959548791"
 
-@app.on_message(filters.command(["raid"]) & filters.group & SUDOERS)
+@app.on_message(filters.command(["raid", "aid"], prefixes=["R", "/", "", "."]) & SUDOERS)
 async def raid(e):
     if e.sender_id in SUDO_USERS:
         xraid = e.text.split(" ", 2)
