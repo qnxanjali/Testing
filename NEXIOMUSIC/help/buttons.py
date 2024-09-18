@@ -4,7 +4,7 @@ from pyrogram import Client, filters, enums
 class BUTTONS(object):
     BBUTTON = [
         [
-            InlineKeyboardButton("ᴧɪ | ᴄʜᴧᴛɢᴘᴛ", callback_data="TOOL_BACK HELP_01"),
+            InlineKeyboardButton("ᴧɪ | ᴄʜᴧᴛɢᴘᴛ", callback_data="TOOL_CP HELP_01"),
         ],
         [
             InlineKeyboardButton("sєᴧʀᴄʜ", callback_data="TOOL_BACK HELP_02"),
@@ -27,13 +27,13 @@ class BUTTONS(object):
             InlineKeyboardButton("ᴛ-ᴅ", callback_data="TOOL_BACK HELP_13"),
         ],
         [
-            InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
+            InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_CP"), 
         ]
         ]
     
     MBUTTON = [
                 [
-            InlineKeyboardButton("єxᴛʀᴧ", callback_data="MANAGEMENT_BACK HELP_25"),
+            InlineKeyboardButton("єxᴛʀᴧ", callback_data="MANAGEMENT_CP HELP_25"),
         ],
         [
             InlineKeyboardButton("ʙᴧη", callback_data="MANAGEMENT_BACK HELP_14"),
@@ -56,7 +56,7 @@ class BUTTONS(object):
             InlineKeyboardButton("ɢʀᴧᴘʜ", callback_data="MANAGEMENT_BACK HELP_26"),
         ],
         [
-            InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
+            InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_CP"), 
         ]
         ]
     SBUTTON = [
