@@ -4,69 +4,72 @@ from pyrogram import Client, filters, enums
 class BUTTONS(object):
     BBUTTON = [
         [
-            InlineKeyboardButton("ᴀɪ | ᴄʜᴀᴛɢᴘᴛ", callback_data="NEXIOPLUS HELP_01"),
+            InlineKeyboardButton("ᴧɪ | ᴄʜᴧᴛɢᴘᴛ", callback_data="TOOL_BACK HELP_01"),
         ],
         [
-            InlineKeyboardButton("sᴇᴀʀᴄʜ", callback_data="NEXIOPLUS HELP_02"),
-            InlineKeyboardButton("ᴛᴛs", callback_data="NEXIOPLUS HELP_03"),
-            InlineKeyboardButton("ɪɴғᴏ", callback_data="NEXIOPLUS HELP_04"),
+            InlineKeyboardButton("sєᴧʀᴄʜ", callback_data="TOOL_BACK HELP_02"),
+            InlineKeyboardButton("ᴛᴛs", callback_data="TOOL_BACK HELP_03"),
+            InlineKeyboardButton("ɪηғσ", callback_data="TOOL_BACK HELP_04"),
         ],
         [
-            InlineKeyboardButton("ғᴏɴᴛ", callback_data="NEXIOPLUS HELP_05"),
-            InlineKeyboardButton("ᴍᴀᴛʜ", callback_data="NEXIOPLUS HELP_06"),
-            InlineKeyboardButton("ᴛᴀɢᴀʟʟ", callback_data="NEXIOPLUS HELP_07"),
+            InlineKeyboardButton("ғσηᴛ", callback_data="TOOL_BACK HELP_05"),
+            InlineKeyboardButton("ϻᴧᴛʜ", callback_data="TOOL_BACK HELP_06"),
+            InlineKeyboardButton("ᴛᴧɢᴧʟʟ", callback_data="TOOL_BACK HELP_07"),
         ],
         [
-            InlineKeyboardButton("ɪᴍᴀɢᴇ", callback_data="NEXIOPLUS HELP_08"),
-            InlineKeyboardButton("ʜᴀsᴛᴀɢ", callback_data="NEXIOPLUS HELP_09"),
-            InlineKeyboardButton("sᴛɪᴄᴋᴇʀs", callback_data="NEXIOPLUS HELP_10"),
+            InlineKeyboardButton("ɪϻᴧɢє", callback_data="TOOL_BACK HELP_08"),
+            InlineKeyboardButton("ʜᴧsᴛᴧɢ", callback_data="TOOL_BACK HELP_09"),
+            InlineKeyboardButton("sᴛɪᴄᴋєʀs", callback_data="TOOL_BACK HELP_10"),
         ],
         [
-            InlineKeyboardButton("ғᴜɴ", callback_data="NEXIOPLUS HELP_11"),
-            InlineKeyboardButton("ǫᴜᴏᴛʟʏ", callback_data="NEXIOPLUS HELP_12"),
-            InlineKeyboardButton("ᴛ-ᴅ", callback_data="NEXIOPLUS HELP_13"),
+            InlineKeyboardButton("ғυη", callback_data="TOOL_BACK HELP_11"),
+            InlineKeyboardButton("ǫυσᴛʟʏ", callback_data="TOOL_BACK HELP_12"),
+            InlineKeyboardButton("ᴛ-ᴅ", callback_data="TOOL_BACK HELP_13"),
         ],
         [
-            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
+            InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
         ]
         ]
     
     MBUTTON = [
                 [
-            InlineKeyboardButton("ᴇxᴛʀᴀ", callback_data="NEXIOPLUS HELP_25"),
+            InlineKeyboardButton("єxᴛʀᴧ", callback_data="MANAGEMENT_BACK HELP_25"),
         ],
         [
-            InlineKeyboardButton("ʙᴀɴ", callback_data="NEXIOPLUS HELP_14"),
-            InlineKeyboardButton("ᴋɪᴄᴋ", callback_data="NEXIOPLUS HELP_15"),
-            InlineKeyboardButton("ᴍᴜᴛᴇ", callback_data="NEXIOPLUS HELP_16"),
+            InlineKeyboardButton("ʙᴧη", callback_data="MANAGEMENT_BACK HELP_14"),
+            InlineKeyboardButton("ᴋɪᴄᴋ", callback_data="MANAGEMENT_BACK HELP_15"),
+            InlineKeyboardButton("ϻυᴛє", callback_data="MANAGEMENT_BACK HELP_16"),
         ],
         [
-            InlineKeyboardButton("ᴘɪɴ", callback_data="NEXIOPLUS HELP_17"),
-            InlineKeyboardButton("sᴛᴀғғ", callback_data="NEXIOPLUS HELP_18"),
-            InlineKeyboardButton("sᴇᴛ-ᴜᴘ", callback_data="NEXIOPLUS HELP_19"),
+            InlineKeyboardButton("ᴘɪη", callback_data="MANAGEMENT_BACK HELP_17"),
+            InlineKeyboardButton("sᴛᴧғғ", callback_data="MANAGEMENT_BACK HELP_18"),
+            InlineKeyboardButton("sєᴛ-υᴘ", callback_data="MANAGEMENT_BACK HELP_19"),
         ],
         [
-            InlineKeyboardButton("ᴢᴏᴍʙɪᴇ", callback_data="NEXIOPLUS HELP_20"),
-            InlineKeyboardButton("ɢᴀᴍᴇ", callback_data="NEXIOPLUS HELP_21"),
-            InlineKeyboardButton("ɪᴍᴘᴏsᴛᴇʀ", callback_data="NEXIOPLUS HELP_22"),
+            InlineKeyboardButton("ᴢσϻʙɪє", callback_data="MANAGEMENT_BACK HELP_20"),
+            InlineKeyboardButton("ɢᴧϻє", callback_data="MANAGEMENT_BACK HELP_21"),
+            InlineKeyboardButton("ɪϻᴘσsᴛєʀ", callback_data="MANAGEMENT_BACK HELP_22"),
         ],
         [
-            InlineKeyboardButton("sɢ", callback_data="NEXIOPLUS HELP_23"),
-            InlineKeyboardButton("ᴛʀ", callback_data="NEXIOPLUS HELP_24"),
-            InlineKeyboardButton("ɢʀᴀᴘʜ", callback_data="NEXIOPLUS HELP_26"),
+            InlineKeyboardButton("sɢ", callback_data="MANAGEMENT_BACK HELP_23"),
+            InlineKeyboardButton("ᴛʀ", callback_data="MANAGEMENT_BACK HELP_24"),
+            InlineKeyboardButton("ɢʀᴧᴘʜ", callback_data="MANAGEMENT_BACK HELP_26"),
         ],
         [
-            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
+            InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
         ]
         ]
     SBUTTON = [
         [
-            InlineKeyboardButton("TOOL", callback_data="TOOL_CP"),
-            InlineKeyboardButton("MANAGEMENT", callback_data="MANAGEMENT_CP"),
+            InlineKeyboardButton("ϻυsɪᴄ", callback_data="settings_back_helper"),
+            InlineKeyboardButton("ϻᴧηᴧɢєϻєηᴛ", callback_data="MANAGEMENT_CP"),
         ],
         [
-            InlineKeyboardButton("MUSIC", callback_data="settings_back_helper"),
-            InlineKeyboardButton("HOME", callback_data="settingsback_helper"),
+            InlineKeyboardButton("ᴛσσʟs", callback_data="TOOL_CP"),
+            InlineKeyboardButton("ᴘʀσϻσ", callback_data="MAIN_BACK HELP_27"),
+        ],
+        [
+            InlineKeyboardButton("ʙᴧᴄᴋ ᴛσ ʜσϻє", callback_data="settingsback_helper"),
             
         ]
         ]
