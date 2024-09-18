@@ -50,8 +50,8 @@ class BUTTONS(object):
         ]
     SBUTTON = [
         [
-            InlineKeyboardButton("TOOL", callback_data="NEXIO_CP"),
-            InlineKeyboardButton("MANAGEMENT", callback_data="NEXIOO_CP"),
+            InlineKeyboardButton("TOOL", callback_data="TOOL_CP"),
+            InlineKeyboardButton("MANAGEMENT", callback_data="MANAGEMENT_CP"),
         ],
         [
             InlineKeyboardButton("MUSIC", callback_data="settings_back_helper"),
