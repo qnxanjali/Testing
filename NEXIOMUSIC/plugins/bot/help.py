@@ -112,34 +112,34 @@ async def helper_cb(client, CallbackQuery, _):
 
 
 
-@app.on_callback_query(filters.regex("NEXIO_CP") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("TOOL_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
     await CallbackQuery.edit_message_text(
         Helper.HELP_M,
         reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON)
     )
-@app.on_callback_query(filters.regex('NEXIO123'))
+@app.on_callback_query(filters.regex('TOOL123'))
 async def on_back_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_pannel(_, True)
-    if cb == "NEXIO_CP":
+    if cb == "TOOL_CP":
         await CallbackQuery.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard
         )
-@app.on_callback_query(filters.regex('NEXIO_BACK'))      
+@app.on_callback_query(filters.regex('TOOL_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = InlineKeyboardMarkup(
     [
     [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"NEXIO_BACK")
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"TOOL_BACK")
     ]
     ]
     )
-    if cb == "Okieeeeee":
+    if cb == "SACHIN":
         await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
     else:
         await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
@@ -156,34 +156,34 @@ async def mb_plugin_button(client, CallbackQuery):
 
 
 
-@app.on_callback_query(filters.regex("NEXIOO_CP") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("MANAGEMENT_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
     await CallbackQuery.edit_message_text(
         Helper.HELP_B,
         reply_markup=InlineKeyboardMarkup(BUTTONS.BBUTTON)
     )
-@app.on_callback_query(filters.regex('NEXIO123'))
+@app.on_callback_query(filters.regex('MANAGEMENT123'))
 async def on_back_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_pannel(_, True)
-    if cb == "NEXIOO_CP":
+    if cb == "MANAGEMENT_CP":
         await CallbackQuery.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard
         )
-@app.on_callback_query(filters.regex('NEXIOO_BACK'))      
+@app.on_callback_query(filters.regex('MANAGEMENT_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = InlineKeyboardMarkup(
     [
     [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"NEXIOO_BACK")
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MANAGEMENT_BACK")
     ]
     ]
     )
-    if cb == "Okieeeeee":
+    if cb == "HIMANSHI":
         await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
     else:
         await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
@@ -200,12 +200,37 @@ async def mb_plugin_button(client, CallbackQuery):
 
 
 
-@app.on_callback_query(filters.regex("MAIN_HELP_CP") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("MAIN_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
     await CallbackQuery.edit_message_text(
         Helper.HELP_SACHIN, 
         reply_markup=InlineKeyboardMarkup(BUTTONS.SBUTTON)
     )
+@app.on_callback_query(filters.regex('MAIN123'))
+async def on_back_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = help_pannel(_, True)
+    if cb == "MAIN_CP":
+        await CallbackQuery.edit_message_text(
+            _["help_1"].format(SUPPORT_CHAT),
+            reply_markup=keyboard
+        )
+@app.on_callback_query(filters.regex('MAIN_BACK'))      
+async def mb_plugin_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = InlineKeyboardMarkup(
+    [
+    [
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MAIN_BACK")
+    ]
+    ]
+    )
+    if cb == "NEXIO":
+        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+    else:
+        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
 
 
 
