@@ -25,28 +25,36 @@ class BUTTONS(object):
             InlineKeyboardButton("ғᴜɴ", callback_data="NEXIOPLUS HELP_11"),
             InlineKeyboardButton("ǫᴜᴏᴛʟʏ", callback_data="NEXIOPLUS HELP_12"),
             InlineKeyboardButton("ᴛ-ᴅ", callback_data="NEXIOPLUS HELP_13"),
+        ],
+        [
+            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
         ]
         ]
     
     MBUTTON = [
-        [
-            InlineKeyboardButton("• ᴀɪ •", callback_data="NEXIOPLUS HELP_ChatGPT"),
-            InlineKeyboardButton("• ɪɴғᴏ •", callback_data="NEXIOPLUS HELP_Info"),
-            InlineKeyboardButton("• sᴛɪᴄᴋᴇꝛ •", callback_data="NEXIOPLUS HELP_Sticker")
+                [
+            InlineKeyboardButton("ᴇxᴛʀᴀ", callback_data="NEXIOPLUS HELP_25"),
         ],
         [
-            InlineKeyboardButton("• ᴇxᴛꝛᴧ •", callback_data="NEXIOPLUS HELP_Extra"),
-            InlineKeyboardButton("• ɪᴍᴧɢᴇ •", callback_data="NEXIOPLUS HELP_Image"),
-            InlineKeyboardButton("• sᴇᴧꝛᴄʜ •", callback_data="NEXIOPLUS HELP_Search")
+            InlineKeyboardButton("ʙᴀɴ", callback_data="NEXIOPLUS HELP_14"),
+            InlineKeyboardButton("ᴋɪᴄᴋ", callback_data="NEXIOPLUS HELP_15"),
+            InlineKeyboardButton("ᴍᴜᴛᴇ", callback_data="NEXIOPLUS HELP_16"),
         ],
         [
-            InlineKeyboardButton("• ǫᴜɪʟʏ •", callback_data="NEXIOPLUS HELP_Q")
+            InlineKeyboardButton("ᴘɪɴ", callback_data="NEXIOPLUS HELP_17"),
+            InlineKeyboardButton("sᴛᴀғғ", callback_data="NEXIOPLUS HELP_18"),
+            InlineKeyboardButton("sᴇᴛ-ᴜᴘ", callback_data="NEXIOPLUS HELP_19"),
         ],
         [
-            InlineKeyboardButton("• ғᴏиᴛ •", callback_data="NEXIOPLUS HELP_Font"),
-            InlineKeyboardButton("• ɢᴧᴍᴇ •", callback_data="NEXIOPLUS HELP_Game"),
-            InlineKeyboardButton("• ᴛ-ɢꝛᴧᴘʜ •", callback_data="NEXIOPLUS HELP_TG")
-        ],    
+            InlineKeyboardButton("ᴢᴏᴍʙɪᴇ", callback_data="NEXIOPLUS HELP_20"),
+            InlineKeyboardButton("ɢᴀᴍᴇ", callback_data="NEXIOPLUS HELP_21"),
+            InlineKeyboardButton("ɪᴍᴘᴏsᴛᴇʀ", callback_data="NEXIOPLUS HELP_22"),
+        ],
+        [
+            InlineKeyboardButton("sɢ", callback_data="NEXIOPLUS HELP_23"),
+            InlineKeyboardButton("ᴛʀ", callback_data="NEXIOPLUS HELP_24"),
+            InlineKeyboardButton("ɢʀᴀᴘʜ", callback_data="NEXIOPLUS HELP_26"),
+        ],
         [
             InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
         ]
