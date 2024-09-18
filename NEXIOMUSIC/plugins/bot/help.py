@@ -112,30 +112,30 @@ async def helper_cb(client, CallbackQuery, _):
 
 
 
-@app.on_callback_query(filters.regex("TOOL_CP") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("MANAGEMENT_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
     await CallbackQuery.edit_message_text(
         Helper.HELP_M,
         reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON)
     )
-@app.on_callback_query(filters.regex('TOOL123'))
+@app.on_callback_query(filters.regex('MANAGEMENT123'))
 async def on_back_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_pannel(_, True)
-    if cb == "TOOL_CP":
+    if cb == "MANAGEMENT_CP":
         await CallbackQuery.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard
         )
-@app.on_callback_query(filters.regex('TOOL_BACK'))      
+@app.on_callback_query(filters.regex('MANAGEMENT_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = InlineKeyboardMarkup(
     [
     [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"TOOL_BACK")
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MANAGEMENT_BACK")
     ]
     ]
     )
@@ -156,30 +156,30 @@ async def mb_plugin_button(client, CallbackQuery):
 
 
 
-@app.on_callback_query(filters.regex("MANAGEMENT_CP") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("TOOL_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
     await CallbackQuery.edit_message_text(
         Helper.HELP_B,
         reply_markup=InlineKeyboardMarkup(BUTTONS.BBUTTON)
     )
-@app.on_callback_query(filters.regex('MANAGEMENT123'))
+@app.on_callback_query(filters.regex('TOOL123'))
 async def on_back_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_pannel(_, True)
-    if cb == "MANAGEMENT_CP":
+    if cb == "TOOL_CP":
         await CallbackQuery.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard
         )
-@app.on_callback_query(filters.regex('MANAGEMENT_BACK'))      
+@app.on_callback_query(filters.regex('TOOL_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 2)[2]
     keyboard = InlineKeyboardMarkup(
     [
     [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MANAGEMENT_BACK")
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"TOOL_BACK")
     ]
     ]
     )
