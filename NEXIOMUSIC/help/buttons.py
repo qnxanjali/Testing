@@ -4,24 +4,27 @@ from pyrogram import Client, filters, enums
 class BUTTONS(object):
     BBUTTON = [
         [
-            InlineKeyboardButton("• ɢꝛᴏᴜᴘ •", callback_data="NEXIOPLUS HELP_Group"),
-            InlineKeyboardButton("• ᴧᴄᴛɪᴏи •", callback_data="NEXIOPLUS HELP_Action"),
-            InlineKeyboardButton("• sᴛɪᴄᴋᴇꝛ •", callback_data="NEXIOPLUS HELP_Sticker")
+            InlineKeyboardButton("ᴀɪ | ᴄʜᴀᴛɢᴘᴛ", callback_data="NEXIOPLUS HELP_01"),
         ],
         [
-            InlineKeyboardButton("• ᴛᴧɢ-ᴧʟʟ •", callback_data="NEXIOPLUS HELP_TagAll"),
-            InlineKeyboardButton("• ɪᴍᴘᴏsᴛᴇꝛ •", callback_data="NEXIOPLUS HELP_Imposter"),
-            InlineKeyboardButton("• ᴛ-ᴅᴧꝛᴇ •", callback_data="NEXIOPLUS HELP_TD")
+            InlineKeyboardButton("sᴇᴀʀᴄʜ", callback_data="NEXIOPLUS HELP_02"),
+            InlineKeyboardButton("ᴛᴛs", callback_data="NEXIOPLUS HELP_03"),
+            InlineKeyboardButton("ɪɴғᴏ", callback_data="NEXIOPLUS HELP_04"),
         ],
         [
-            InlineKeyboardButton("• ʜᴧsʜ-ᴛᴧɢ •", callback_data="NEXIOPLUS HELP_HT")
+            InlineKeyboardButton("ғᴏɴᴛ", callback_data="NEXIOPLUS HELP_05"),
+            InlineKeyboardButton("ᴍᴀᴛʜ", callback_data="NEXIOPLUS HELP_06"),
+            InlineKeyboardButton("ᴛᴀɢᴀʟʟ", callback_data="NEXIOPLUS HELP_07"),
         ],
         [
-            InlineKeyboardButton("• ттѕ •", callback_data="NEXIOPLUS HELP_TTS"),
-            InlineKeyboardButton("• ғᴜи •", callback_data="NEXIOPLUS HELP_Fun")
-        ],    
+            InlineKeyboardButton("ɪᴍᴀɢᴇ", callback_data="NEXIOPLUS HELP_08"),
+            InlineKeyboardButton("ʜᴀsᴛᴀɢ", callback_data="NEXIOPLUS HELP_09"),
+            InlineKeyboardButton("sᴛɪᴄᴋᴇʀs", callback_data="NEXIOPLUS HELP_10"),
+        ],
         [
-            InlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data=f"MAIN_HELP_CP"), 
+            InlineKeyboardButton("ғᴜɴ", callback_data="NEXIOPLUS HELP_11"),
+            InlineKeyboardButton("ǫᴜᴏᴛʟʏ", callback_data="NEXIOPLUS HELP_12"),
+            InlineKeyboardButton("ᴛ-ᴅ", callback_data="NEXIOPLUS HELP_13"),
         ]
         ]
     
