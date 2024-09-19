@@ -19,8 +19,6 @@ async def helper_privatee(
         except:
             pass
         chat_id = update.message.chat.id
-        language = await get_lang(chat_id)
-        _ = get_string(language)
         keyboard = help_pannell(_, True)
         await update.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard
@@ -30,8 +28,7 @@ async def helper_privatee(
             await update.delete()
         except:
             pass
-        language = await get_lang(update.chat.id)
-        _ = get_string(language)
+        update.chat.id
         keyboard = help_pannell(_)
         await update.reply_photo(
             photo=START_IMG_URL,
