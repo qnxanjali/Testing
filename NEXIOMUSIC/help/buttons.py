@@ -2,33 +2,16 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram import Client, filters, enums 
 
 class BUTTONS(object):
-    BBUTTON = [
-        [
-            InlineKeyboardButton("ᴧɪ | ᴄʜᴧᴛɢᴘᴛ", callback_data="HELP_01 TOOL_BACK"),
-        ],
-        [
-            InlineKeyboardButton("sєᴧʀᴄʜ", callback_data="TOOL_BACK HELP_02"),
-            InlineKeyboardButton("ᴛᴛs", callback_data="TOOL_BACK HELP_03"),
-            InlineKeyboardButton("ɪηғσ", callback_data="TOOL_BACK HELP_04"),
-        ],
-        [
-            InlineKeyboardButton("ғσηᴛ", callback_data="TOOL_BACK HELP_05"),
-            InlineKeyboardButton("ϻᴧᴛʜ", callback_data="TOOL_BACK HELP_06"),
-            InlineKeyboardButton("ᴛᴧɢᴧʟʟ", callback_data="TOOL_BACK HELP_07"),
-        ],
-        [
-            InlineKeyboardButton("ɪϻᴧɢє", callback_data="TOOL_BACK HELP_08"),
-            InlineKeyboardButton("ʜᴧsᴛᴧɢ", callback_data="TOOL_BACK HELP_09"),
-            InlineKeyboardButton("sᴛɪᴄᴋєʀs", callback_data="TOOL_BACK HELP_10"),
-        ],
-        [
-            InlineKeyboardButton("ғυη", callback_data="TOOL_BACK HELP_11"),
-            InlineKeyboardButton("ǫυσᴛʟʏ", callback_data="TOOL_BACK HELP_12"),
-            InlineKeyboardButton("ᴛ-ᴅ", callback_data="TOOL_BACK HELP_13"),
-        ],
-        [
-            InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_CP"), 
-        ]
+    BBUTTON = [[InlineKeyboardButton("ᴧɪ | ᴄʜᴧᴛɢᴘᴛ", callback_data="TOOL_BACK HELP_01"),],
+        [InlineKeyboardButton("sєᴧʀᴄʜ", callback_data="TOOL_BACK HELP_02"),InlineKeyboardButton("ᴛᴛs", callback_data="TOOL_BACK HELP_03"),
+            InlineKeyboardButton("ɪηғσ", callback_data="TOOL_BACK HELP_04"),],
+        [InlineKeyboardButton("ғσηᴛ", callback_data="TOOL_BACK HELP_05"),InlineKeyboardButton("ϻᴧᴛʜ", callback_data="TOOL_BACK HELP_06"),
+            InlineKeyboardButton("ᴛᴧɢᴧʟʟ", callback_data="TOOL_BACK HELP_07"),],
+        [InlineKeyboardButton("ɪϻᴧɢє", callback_data="TOOL_BACK HELP_08"),InlineKeyboardButton("ʜᴧsᴛᴧɢ", callback_data="TOOL_BACK HELP_09"),
+            InlineKeyboardButton("sᴛɪᴄᴋєʀs", callback_data="TOOL_BACK HELP_10"),],
+        [InlineKeyboardButton("ғυη", callback_data="TOOL_BACK HELP_11"),InlineKeyboardButton("ǫυσᴛʟʏ", callback_data="TOOL_BACK HELP_12"),
+            InlineKeyboardButton("ᴛ-ᴅ", callback_data="TOOL_BACK HELP_13"),],
+        [InlineKeyboardButton("• ʙᴧᴄᴋ •", callback_data=f"MAIN_CP"),]
         ]
     
     MBUTTON = [
