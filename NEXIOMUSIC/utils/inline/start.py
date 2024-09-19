@@ -20,7 +20,7 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_3"], url=f"https://t.me/{app.username}?startgroup=true",)
         ],
         [
-            InlineKeyboardButton(text=_["S_B_4"], callback_data="tool_back_helper"),
+            InlineKeyboardButton(text=_["S_B_4"], callback_data="MAIN_CP"),
         ],
         [
             InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHANNEL),
