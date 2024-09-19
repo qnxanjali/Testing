@@ -3,7 +3,7 @@ from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message, InlineKeyboardButton
 from NEXIOMUSIC import app
 from NEXIOMUSIC.utils import help_pannel
-from NEXIOMUSIC.utils import help_pannell
+#from NEXIOMUSIC.utils import help_pannell
 from NEXIOMUSIC.utils.database import get_lang
 from NEXIOMUSIC.utils.decorators.language import LanguageStart, languageCB
 from NEXIOMUSIC.utils.inline.help import help_back_markup, private_help_panel
