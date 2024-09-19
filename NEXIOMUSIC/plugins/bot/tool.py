@@ -61,29 +61,29 @@ async def helper_cb(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_back_markup(_)
-    if cb == "hhb1":
+    if cb == "HELP_01":
         await CallbackQuery.edit_message_text(helpers.HELP_01, reply_markup=keyboard)
-    elif cb == "hhb2":
+    elif cb == "HELP_02":
         await CallbackQuery.edit_message_text(helpers.HELP_02, reply_markup=keyboard)
-    elif cb == "hhb3":
+    elif cb == "HELP_03":
         await CallbackQuery.edit_message_text(helpers.HELP_03, reply_markup=keyboard)
-    elif cb == "hhb4":
+    elif cb == "HELP_04":
         await CallbackQuery.edit_message_text(helpers.HELP_04, reply_markup=keyboard)
-    elif cb == "hhb5":
+    elif cb == "HELP_05":
         await CallbackQuery.edit_message_text(helpers.HELP_05, reply_markup=keyboard)
-    elif cb == "hhb6":
+    elif cb == "HELP_06":
         await CallbackQuery.edit_message_text(helpers.HELP_06, reply_markup=keyboard)
-    elif cb == "hhb7":
+    elif cb == "HELP_07":
         await CallbackQuery.edit_message_text(helpers.HELP_07, reply_markup=keyboard)
-    elif cb == "hhb8":
+    elif cb == "HELP_08":
         await CallbackQuery.edit_message_text(helpers.HELP_08, reply_markup=keyboard)
-    elif cb == "hhb9":
+    elif cb == "HELP_09":
         await CallbackQuery.edit_message_text(helpers.HELP_09, reply_markup=keyboard)
-    elif cb == "hhb10":
+    elif cb == "HELP_010":
         await CallbackQuery.edit_message_text(helpers.HELP_010, reply_markup=keyboard)
-    elif cb == "hhb11":
+    elif cb == "HELP_011":
         await CallbackQuery.edit_message_text(helpers.HELP_011, reply_markup=keyboard)
-    elif cb == "hhb12":
+    elif cb == "HELP_012":
         await CallbackQuery.edit_message_text(helpers.HELP_012, reply_markup=keyboard)
-    elif cb == "hhb13":
+    elif cb == "HELP_013":
         await CallbackQuery.edit_message_text(helpers.HELP_013, reply_markup=keyboard)
