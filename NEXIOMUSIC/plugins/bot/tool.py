@@ -2,17 +2,14 @@ from typing import Union
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message, InlineKeyboardButton
 from NEXIOMUSIC import app
-from NEXIOMUSIC.utils import help_pannel
-#from NEXIOMUSIC.utils import help_pannell
-from NEXIOMUSIC.utils.database import get_lang
-from NEXIOMUSIC.utils.decorators.language import LanguageStart, languageCB
+from NEXIOMUSIC.utils import help_pannell
 from NEXIOMUSIC.utils.inline.tool import help_back_markupp, private_help_panell
-from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
+from config import BANNED_USERS, PING_IMG_URL, SUPPORT_CHANNEL
 from strings import get_string, helpers
 
 
 @app.on_callback_query(filters.regex("tool_back_helper") & ~BANNED_USERS)
-async def helper_private(
+async def helper_privatee(
     client: app, update: Union[types.Message, types.CallbackQuery]
 ):
     is_callback = isinstance(update, types.CallbackQuery)
@@ -24,7 +21,7 @@ async def helper_private(
         chat_id = update.message.chat.id
         language = await get_lang(chat_id)
         _ = get_string(language)
-        keyboard = help_pannel(_, True)
+        keyboard = help_pannell(_, True)
         await update.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard
         )
@@ -35,23 +32,22 @@ async def helper_private(
             pass
         language = await get_lang(update.chat.id)
         _ = get_string(language)
-        keyboard = help_pannel(_)
+        keyboard = help_pannell(_)
         await update.reply_photo(
-            photo=START_IMG_URL,
+            photo=PING_IMG_URL,
             caption=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
         )
         
         
 @app.on_message(filters.command(["thelp"]) & filters.group & ~BANNED_USERS)
-@LanguageStart
-async def help_com_group(client, message: Message, _):
-    keyboard = private_help_panel(_)
-    await message.reply_text(_["help_2"], reply_markup=InlineKeyboardMarkup(keyboard))
+async def help_com_groupp(client, message: Message, _):
+    keyboard = private_help_panell(_)
+    await message.reply_text(_["help_2"], reply_markup=InlineKeyboardMarkupp(keyboard))
     
     
 @app.on_callback_query(filters.regex("thelp_callback") & ~BANNED_USERS)
-async def helper_cb(client, CallbackQuery, _):
+async def helper_cbb(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_back_markupp(_)
