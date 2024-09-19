@@ -12,7 +12,7 @@ def help_pannell(_, START: Union[bool, int] = None):
     upl = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text=_[""], callback_data="thelp_callback hhb1",),
+                InlineKeyboardButton(text=_["HH_B_1"], callback_data="thelp_callback hhb1",),
             ],
             [
                 InlineKeyboardButton(text=_["HH_B_2"], callback_data="thelp_callback hhb2",),
