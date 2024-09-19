@@ -19,7 +19,7 @@ async def helper_privatee(
         except:
             pass
         chat_id = update.message.chat.id
-        keyboard = help_pannell(_, True)
+        keyboard = help_pannell(True)
         await update.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard
         )
