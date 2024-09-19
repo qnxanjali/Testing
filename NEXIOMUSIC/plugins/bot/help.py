@@ -62,6 +62,42 @@ async def help_com_group(client, message: Message, _):
     keyboard = private_help_panel(_)
     await message.reply_text(_["help_2"], reply_markup=InlineKeyboardMarkup(keyboard))
 
+    
+@app.on_callback_query(filters.regex('MAIN_BACK'))      
+async def sb_plugin_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MAIN_BACK")]])
+    if cb == "NEXIO01":
+        await CallbackQuery.edit_message_text(Helper, HELP_01, reply_markup=keyboard)
+    if cb == "NEXIO02":
+        await CallbackQuery.edit_message_text(Helper, HELP_02, reply_markup=keyboard)
+    if cb == "NEXIO03":
+        await CallbackQuery.edit_message_text(Helper, HELP_03, reply_markup=keyboard)
+    if cb == "NEXIO04":
+        await CallbackQuery.edit_message_text(Helper, HELP_04, reply_markup=keyboard)
+    if cb == "NEXIO05":
+        await CallbackQuery.edit_message_text(Helper, HELP_05, reply_markup=keyboard)
+    if cb == "NEXIO06":
+        await CallbackQuery.edit_message_text(Helper, HELP_06, reply_markup=keyboard)
+    if cb == "NEXIO07":
+        await CallbackQuery.edit_message_text(Helper, HELP_07, reply_markup=keyboard)
+    if cb == "NEXIO08":
+        await CallbackQuery.edit_message_text(Helper, HELP_08, reply_markup=keyboard)
+    if cb == "NEXIO09":
+        await CallbackQuery.edit_message_text(Helper, HELP_09, reply_markup=keyboard)
+    if cb == "NEXIO10":
+        await CallbackQuery.edit_message_text(Helper, HELP_10, reply_markup=keyboard)
+    if cb == "NEXIO11":
+        await CallbackQuery.edit_message_text(Helper, HELP_11, reply_markup=keyboard)
+    if cb == "NEXIO12":
+        await CallbackQuery.edit_message_text(Helper, HELP_12, reply_markup=keyboard)
+    if cb == "NEXIO13":
+        await CallbackQuery.edit_message_text(Helper, HELP_13, reply_markup=keyboard)
+
+
+
+    
 
 @app.on_callback_query(filters.regex("help_callback") & ~BANNED_USERS)
 @languageCB
@@ -183,10 +219,33 @@ async def bb_plugin_button(client, CallbackQuery):
     ]
     ]
     )
-    if cb == "HIMANSHI":
-        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
-    else:
-        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
+    if cb == "TOOL01":
+        await CallbackQuery.edit_message_text(Helper, HELP_01, reply_markup=keyboard)
+    if cb == "TOOL02":
+        await CallbackQuery.edit_message_text(Helper, HELP_02, reply_markup=keyboard)
+    if cb == "TOOL03":
+        await CallbackQuery.edit_message_text(Helper, HELP_03, reply_markup=keyboard)
+    if cb == "TOOL04":
+        await CallbackQuery.edit_message_text(Helper, HELP_04, reply_markup=keyboard)
+    if cb == "TOOL05":
+        await CallbackQuery.edit_message_text(Helper, HELP_05, reply_markup=keyboard)
+    if cb == "TOOL06":
+        await CallbackQuery.edit_message_text(Helper, HELP_06, reply_markup=keyboard)
+    if cb == "TOOL07":
+        await CallbackQuery.edit_message_text(Helper, HELP_07, reply_markup=keyboard)
+    if cb == "TOOL08":
+        await CallbackQuery.edit_message_text(Helper, HELP_08, reply_markup=keyboard)
+    if cb == "TOOL09":
+        await CallbackQuery.edit_message_text(Helper, HELP_09, reply_markup=keyboard)
+    if cb == "TOOL10":
+        await CallbackQuery.edit_message_text(Helper, HELP_10, reply_markup=keyboard)
+    if cb == "TOOL11":
+        await CallbackQuery.edit_message_text(Helper, HELP_11, reply_markup=keyboard)
+    if cb == "TOOL12":
+        await CallbackQuery.edit_message_text(Helper, HELP_12, reply_markup=keyboard)
+    if cb == "TOOL13":
+        await CallbackQuery.edit_message_text(Helper, HELP_13, reply_markup=keyboard)
+
 
 
 
@@ -202,35 +261,49 @@ async def bb_plugin_button(client, CallbackQuery):
 
 @app.on_callback_query(filters.regex("MAIN_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(
-        Helper.HELP_SACHIN, 
-        reply_markup=InlineKeyboardMarkup(BUTTONS.SBUTTON)
-    )
+    await CallbackQuery.edit_message_text(Helper.HELP_SACHIN, reply_markup=InlineKeyboardMarkup(BUTTONS.SBUTTON))
+    
+    
 @app.on_callback_query(filters.regex('MAIN123'))
 async def on_back_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_pannel(_, True)
     if cb == "MAIN_CP":
-        await CallbackQuery.edit_message_text(
-            _["help_1"].format(SUPPORT_CHAT),
-            reply_markup=keyboard
-        )
+        await CallbackQuery.edit_message_text(_["help_1"].format(SUPPORT_CHAT),reply_markup=keyboard)
+        
 @app.on_callback_query(filters.regex('MAIN_BACK'))      
 async def sb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
-    keyboard = InlineKeyboardMarkup(
-    [
-    [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MAIN_BACK")
-    ]
-    ]
-    )
-    if cb == "NEXIO":
-        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
-    else:
-        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MAIN_BACK")]])
+    if cb == "NEXIO01":
+        await CallbackQuery.edit_message_text(Helper, HELP_01, reply_markup=keyboard)
+    if cb == "NEXIO02":
+        await CallbackQuery.edit_message_text(Helper, HELP_02, reply_markup=keyboard)
+    if cb == "NEXIO03":
+        await CallbackQuery.edit_message_text(Helper, HELP_03, reply_markup=keyboard)
+    if cb == "NEXIO04":
+        await CallbackQuery.edit_message_text(Helper, HELP_04, reply_markup=keyboard)
+    if cb == "NEXIO05":
+        await CallbackQuery.edit_message_text(Helper, HELP_05, reply_markup=keyboard)
+    if cb == "NEXIO06":
+        await CallbackQuery.edit_message_text(Helper, HELP_06, reply_markup=keyboard)
+    if cb == "NEXIO07":
+        await CallbackQuery.edit_message_text(Helper, HELP_07, reply_markup=keyboard)
+    if cb == "NEXIO08":
+        await CallbackQuery.edit_message_text(Helper, HELP_08, reply_markup=keyboard)
+    if cb == "NEXIO09":
+        await CallbackQuery.edit_message_text(Helper, HELP_09, reply_markup=keyboard)
+    if cb == "NEXIO10":
+        await CallbackQuery.edit_message_text(Helper, HELP_10, reply_markup=keyboard)
+    if cb == "NEXIO11":
+        await CallbackQuery.edit_message_text(Helper, HELP_11, reply_markup=keyboard)
+    if cb == "NEXIO12":
+        await CallbackQuery.edit_message_text(Helper, HELP_12, reply_markup=keyboard)
+    if cb == "NEXIO13":
+        await CallbackQuery.edit_message_text(Helper, HELP_13, reply_markup=keyboard)
+
 
 
 
