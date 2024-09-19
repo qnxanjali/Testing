@@ -173,7 +173,7 @@ async def on_back_button(client, CallbackQuery):
             reply_markup=keyboard
         )
 @app.on_callback_query(filters.regex('TOOL_BACK'))      
-async def mb_plugin_button(client, CallbackQuery):
+async def bb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = InlineKeyboardMarkup(
@@ -217,7 +217,7 @@ async def on_back_button(client, CallbackQuery):
             reply_markup=keyboard
         )
 @app.on_callback_query(filters.regex('MAIN_BACK'))      
-async def mb_plugin_button(client, CallbackQuery):
+async def sb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = InlineKeyboardMarkup(
