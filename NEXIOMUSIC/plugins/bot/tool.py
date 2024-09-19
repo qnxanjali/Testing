@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, Message, InlineKeyboardButton
 from NEXIOMUSIC import app
 from NEXIOMUSIC.utils import help_pannell
 from NEXIOMUSIC.utils.inline.tool import help_back_markupp, private_help_panell
-from config import BANNED_USERS, PING_IMG_URL, SUPPORT_CHANNEL
+from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHANNEL
 from strings import get_string, helpers
 
 
@@ -34,7 +34,7 @@ async def helper_privatee(
         _ = get_string(language)
         keyboard = help_pannell(_)
         await update.reply_photo(
-            photo=PING_IMG_URL,
+            photo=START_IMG_URL,
             caption=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
         )
