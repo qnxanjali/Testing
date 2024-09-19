@@ -10,13 +10,6 @@ from NEXIOMUSIC.utils.inline.help import help_back_markup, private_help_panel
 from NEXIOMUSIC.utils.inline.tool import help_back_markupp, private_help_panell
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
-from strings import thelpers
-from NEXIOMUSIC.help.buttons import BUTTONS
-from NEXIOMUSIC.help.helper import Helper
-
-
-
-
 
 #------------------------------------------------------------------------------------------------------------------------
 # MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | 
@@ -155,28 +148,28 @@ async def helper_cb(client, CallbackQuery, _):
     cb = callback_data.split(None, 1)[1]
     keyboard = help_back_markupp(_)
     if cb == "hhb1":
-        await CallbackQuery.edit_message_text(thelpers.HELP_01, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_01, reply_markup=keyboard)
     elif cb == "hhb2":
-        await CallbackQuery.edit_message_text(thelpers.HELP_02, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_02, reply_markup=keyboard)
     elif cb == "hhb3":
-        await CallbackQuery.edit_message_text(thelpers.HELP_03, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_03, reply_markup=keyboard)
     elif cb == "hhb4":
-        await CallbackQuery.edit_message_text(thelpers.HELP_04, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_04, reply_markup=keyboard)
     elif cb == "hhb5":
-        await CallbackQuery.edit_message_text(thelpers.HELP_05, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_05, reply_markup=keyboard)
     elif cb == "hhb6":
-        await CallbackQuery.edit_message_text(thelpers.HELP_06, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_06, reply_markup=keyboard)
     elif cb == "hhb7":
-        await CallbackQuery.edit_message_text(thelpers.HELP_07, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_07, reply_markup=keyboard)
     elif cb == "hhb8":
-        await CallbackQuery.edit_message_text(thelpers.HELP_08, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_08, reply_markup=keyboard)
     elif cb == "hhb9":
-        await CallbackQuery.edit_message_text(thelpers.HELP_09, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_09, reply_markup=keyboard)
     elif cb == "hhb10":
-        await CallbackQuery.edit_message_text(thelpers.HELP_10, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_010, reply_markup=keyboard)
     elif cb == "hhb11":
-        await CallbackQuery.edit_message_text(thelpers.HELP_11, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_011, reply_markup=keyboard)
     elif cb == "hhb12":
-        await CallbackQuery.edit_message_text(thelpers.HELP_12, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_012, reply_markup=keyboard)
     elif cb == "hhb13":
-        await CallbackQuery.edit_message_text(thelpers.HELP_13, reply_markup=keyboard)
+        await CallbackQuery.edit_message_text(helpers.HELP_013, reply_markup=keyboard)
