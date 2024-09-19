@@ -7,12 +7,12 @@ from NEXIOMUSIC import app
 
 def help_pannel(_, START: Union[bool, int] = None):
     first = [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data=f"close")]
-    second = [InlineKeyboardButton(text=_["BACK_BUTTON"], callback_data=f"MAIN_CP",),]
+    second = [InlineKeyboardButton(text=_["BACK_BUTTON"], callback_data=f"settings_back_helper",),]
     mark = second if START else first
     upl = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text=_["HH_B_1"], callback_data="thelp_callback hhb1",),
+                InlineKeyboardButton(text=_["HH_B_1"], callback_data="help_callback hhb1",),
             ],
             [
                 InlineKeyboardButton(text=_["HH_B_2"], callback_data="help_callback hhb2",),
