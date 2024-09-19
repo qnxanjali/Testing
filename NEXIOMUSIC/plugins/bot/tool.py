@@ -8,6 +8,8 @@ from NEXIOMUSIC.utils.decorators.language import LanguageStart, languageCB
 from NEXIOMUSIC.utils.inline.tool import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
+from strings import helpers
+from strings.helpers import HELP_01, HELP_02, HELP_03, HELP_04, HELP_05, HELP_06, HELP_07, HELP_08, HELP_09, HELP_010, HELP_011, HELP_012, HELP_013
 
 #------------------------------------------------------------------------------------------------------------------------
 # MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | 
