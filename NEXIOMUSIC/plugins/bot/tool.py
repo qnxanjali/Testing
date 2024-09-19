@@ -14,7 +14,7 @@ from strings import get_string, helpers
 #------------------------------------------------------------------------------------------------------------------------
 
 @app.on_message(filters.command(["thelp"]) & filters.private & ~BANNED_USERS)
-@app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("tool_back_helper") & ~BANNED_USERS)
 async def helper_private(
     client: app, update: Union[types.Message, types.CallbackQuery]
 ):
