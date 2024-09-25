@@ -65,6 +65,7 @@ async def delete_sticker_after_delay(message, delay):
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
+    await message.react("❤️")
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
@@ -122,8 +123,20 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
+        nexio = await message.reply_text(f"**■□□□□□□□□□ 1⩇%**")
+        await nexio.edit_text(f"**■■□□□□□□□□ 2⩇%**")
+        await nexio.edit_text(f"**■■■□□□□□□□ 3⩇%**")
+        await nexio.edit_text(f"**■■■■□□□□□□ 4⩇%**")
+        await nexio.edit_text(f"**■■■■■□□□□□ 5⩇%**")
+        await nexio.edit_text(f"**■■■■■■□□□□ 6⩇%️**")
+        await nexio.edit_text(f"**■■■■■■■□□□ 7⩇%**")
+        await nexio.edit_text(f"**■■■■■■■■□□ 8⩇%**")
+        await nexio.edit_text(f"**■■■■■■■■■□ 9⩇%**")
+        await nexio.edit_text(f"**■■■■■■■■■■ 1⩇⩇%**")
+        await nexio.edit_text(f"**𝗟𝗲𝘁'𝘀 𝗚𝗼 𝗕𝗮𝗯𝘆..🌸**")
+        await nexio.delete()
         sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
-        asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
+        asyncio.create_task(delete_sticker_after_delay(sticker_message, 2))
         served_chats = len(await get_served_chats())
         served_users = len(await get_served_users())
         UP, CPU, RAM, DISK = await bot_sys_stats()
