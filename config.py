@@ -59,11 +59,6 @@ STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
 
-# ❖ BOT INTRODUCTION MESSAGES - THESE CAN BE CUSTOMIZED AS PER YOUR PREFERENCE 
-SACHIN = [
-    "💞", "🔍", "🧪", "⚡️", "🔥", "🎩", "🌈", "🍷", "🥂", "🥃", "🥤", "🕊️", "🦋", "🪄", "💌", "🧨"
-]
-
 BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
@@ -72,22 +67,51 @@ autoclean = []
 confirmer = {}
 
 
-START_IMG_URL = getenv(
-   "START_IMG_URL", "https://graph.org/file/e509753cf069de86e52f8.jpg"
-   )
+STICKER = [
+    "CAACAgUAAxkBAAEBWPdm5mPQY_ZkO0ubAVCfrLsQrQ72JQACjAkAArIJGVUWyBghZ-dV-x4E",
+    "CAACAgUAAxkBAAEBWPhm5mPYKcuczEfuCEOMirtaXp-1dwAC4QoAAq16GFWaCSi4wwAB_FgeBA",
+    "CAACAgUAAxkBAAEBWPlm5mPeoSKNaQG_6nnQu-QDS3G9MAACSggAAq3yEVUPJy8Z5F0c4B4E",
+    "CAACAgUAAxkBAAEBWPpm5mPj0JHkFNtPWwF06LYel6I6bAACNwgAAjdAGFXRuQTa8apeoB4E",
+    "CAACAgUAAxkBAAEBWPtm5mPpBAgyaU64RhnCRrMi2N3scgACEQgAAhUSGVUMJ-alW9VubB4E",
+    "CAACAgUAAxkBAAEBWPxm5mP25bpfq3-MphrBt7_QsuXLlAACqQoAAnmvGFWxfDyUI6qURR4E",
+    "CAACAgUAAxkBAAEBWP1m5mP-nQ-yfPDVY_DtmjJKnKFqTwACHgoAAsmuGVVnKBvEVZZMvB4E",
+    "CAACAgUAAxkBAAEBWP5m5mQPxhxaKOaG5xJgUy14_BSBbAACfQkAAghYGFVtSkRZ5FZQXB4E", 
+]
+
+
+START_IMG_URL = [
+    "https://telegra.ph/file/8fb11f38033d3195c9c8c.jpg",
+    "https://telegra.ph/file/106167c80a3fc3ab9f1e8.jpg",
+    "https://telegra.ph/file/89070543c0f7f2e51118d.jpg",
+    "https://telegra.ph/file/3a0afc7a07f35747684eb.jpg",
+    "https://telegra.ph/file/0db46c5fca2c69829a7d4.jpg",
+    "https://telegra.ph/file/f7e5522656c24abf1bd90.jpg",
+    "https://telegra.ph/file/621f76810deb42513f345.jpg",
+    "https://telegra.ph/file/095d4d1a638bd42e54189.jpg",
+    "https://telegra.ph/file/0a6cf2af7eead7fcb0745.jpg",
+]
+
 PING_VID_URL = getenv(
     "PING_VID_URL", "https://graph.org/file/babb71b593f36549218ce.jpg"
     )
+
 PLAYLIST_IMG_URL = "https://graph.org/file/4a254d425fb4bf09b7470.jpg"
+
 STATS_VID_URL = "https://graph.org/file/51f37e3c2d4aaff5cf80e.jpg"
+
 TELEGRAM_AUDIO_URL = "https://graph.org/file/df01978f91c14b16292f1.jpg"
 TELEGRAM_VIDEO_URL = "https://graph.org/file/a6e3e9d54c8b2e01787b6.jpg"
+
 STREAM_IMG_URL = "https://graph.org/file/49bcbc23be713fbe06bac.jpg"
+
 SOUNCLOUD_IMG_URL = "https://graph.org/file/809651f9be99ee2bf76ab.jpg"
+
 YOUTUBE_IMG_URL = "https://graph.org/file/134c9f52f4ba0f7691cd1.jpg"
+
 SPOTIFY_ARTIST_IMG_URL = "https://graph.org/file/4b5c2174d7f38b4b4abd7.jpg"
 SPOTIFY_ALBUM_IMG_URL = "https://graph.org/file/80feff5bb4a03cf331945.jpg"
 SPOTIFY_PLAYLIST_IMG_URL = "https://graph.org/file/0379defeb51910065beac.jpg"
+
 FAILED = "https://graph.org/file/323b07bccd5e5e1f81f61.jpg"
 
 def time_to_seconds(time):
