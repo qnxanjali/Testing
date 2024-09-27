@@ -24,12 +24,30 @@ from NEXIOMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
-STICKER = [
+STICKERS = [
     "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
     "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
     "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
     "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
 ]
+
+NEXIO = [
+    "https://graph.org/file/e509753cf069de86e52f8.jpg",
+    "https://graph.org/file/babb71b593f36549218ce.jpg",
+    "https://graph.org/file/4a254d425fb4bf09b7470.jpg",
+    "https://graph.org/file/51f37e3c2d4aaff5cf80e.jpg",
+    "https://graph.org/file/df01978f91c14b16292f1.jpg",
+    "https://graph.org/file/a6e3e9d54c8b2e01787b6.jpg",
+    "https://graph.org/file/49bcbc23be713fbe06bac.jpg",
+    "https://graph.org/file/809651f9be99ee2bf76ab.jpg",
+    "https://graph.org/file/134c9f52f4ba0f7691cd1.jpg",
+    "https://graph.org/file/4b5c2174d7f38b4b4abd7.jpg",
+    "https://graph.org/file/80feff5bb4a03cf331945.jpg",
+    "https://graph.org/file/0379defeb51910065beac.jpg",
+    "https://graph.org/file/323b07bccd5e5e1f81f61.jpg",
+    "https://graph.org/file/cbe5c31b9ea5220b17969.jpg",
+    "https://graph.org/file/1a4e7071b3e64c620e003.jpg",
+    ]
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
@@ -39,14 +57,11 @@ async def start_pm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            sticker_msg = await message.reply_sticker(
-                sticker=random.choice(STICKER),  # Random sticker from the list
-            )
-            await asyncio.sleep(0.5)  # the sticker will be deleted after 0.5 seconds
-            await sticker_msg.delete()  # sticker deleted
+            sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
+            asyncio.create_task(delete_sticker_after_delay(sticker_message, 2))
 
             return await message.reply_photo(
-                photo=random.choice(config.START_IMG_URL),
+                photo=random.choice(NEXIO),
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
@@ -72,28 +87,23 @@ async def start_pm(client, message: Message, _):
                 channel = result["channel"]["name"]
                 link = result["link"]
                 published = result["publishedTime"]
-            searched_text = _["start_7"].format(
+                searched_text = _["start_7"].format(
                 title, duration, views, published, channellink, channel, app.mention
             )
             key = InlineKeyboardMarkup(
                 [
-                    [
+                [
                         InlineKeyboardButton(text=_["S_B_9"], url=config.SUPPORT_CHAT),
                         InlineKeyboardButton(text=_["S_B_8"], url=link),
-                    ],
+                ],
                 ]
             )
             await m.delete()
-            await app.send_photo(
-                chat_id=message.chat.id,
-                photo=thumbnail,
-                caption=searched_text,
-                reply_markup=key,
+            await app.send_photo(chat_id=message.chat.id, photo=thumbnail, caption=searched_text, reply_markup=key,
             )
             if await is_on_off(2):
-                return await app.send_message(
-                    chat_id=config.LOGGER_ID,
-                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                return await app.send_message(chat_id=config.LOGGER_ID,
+                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
         out = private_panel(_)
@@ -110,29 +120,18 @@ async def start_pm(client, message: Message, _):
         await nexio.edit_text(f"**𝗟𝗲𝘁'𝘀 𝗚𝗼 𝗕𝗮𝗯𝘆..🌸**")
         await nexio.delete()
 
-        # First start_2 send photo with caption
-        sticker_msg = await message.reply_sticker(
-                sticker=random.choice(STICKER),  # Random sticker from the list
-            )
-        await asyncio.sleep(0.5)  # the sticker will be deleted after 0.5 seconds
-        await sticker_msg.delete()  # delete the sticker message
-
-        await message.reply_photo(
-            photo=random.choice(config.START_IMG_URL),
-            caption=_["start_2"].format(message.from_user.mention),  # Pehla caption (start_2)
+        sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
+        asyncio.create_task(delete_sticker_after_delay(sticker_message, 2))
+        await message.reply_photo(photo=random.choice(NEXIO),
+        caption=_["start_2"].format(message.from_user.mention),
         )
 
-        # Ab start_3 caption ko reply_markup ke saath bhejo
-        await message.reply_text(
-            text=_["start_3"].format(app.mention),  # Dusra caption (start_3)
-            reply_markup=InlineKeyboardMarkup(out),  # reply_markup ke saath
+        await message.reply_text(text=_["start_3"].format(app.mention),
+        reply_markup=InlineKeyboardMarkup(out),
         )
 
-        # Agar logging on hai, to message bhejo
         if await is_on_off(2):
-            return await app.send_message(
-                chat_id=config.LOGGER_ID,
-                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+            return await app.send_message(chat_id=config.LOGGER_ID, text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
 
 
@@ -141,13 +140,11 @@ async def start_pm(client, message: Message, _):
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
-    await message.reply_photo(
-        photo=random.choice(config.START_IMG_URL),
-        caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
-        reply_markup=InlineKeyboardMarkup(out),
+    await message.reply_photo(photo=random.choice(NEXIO),
+    caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
+    reply_markup=InlineKeyboardMarkup(out),
     )
     return await add_served_chat(message.chat.id)
-
 
 @app.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
@@ -176,8 +173,7 @@ async def welcome(client, message: Message):
                     return await app.leave_chat(message.chat.id)
 
                 out = start_panel(_)
-                await message.reply_photo(
-                    photo=random.choice(config.START_IMG_URL),
+                await message.reply_photo(photo=random.choice(NEXIO),
                     caption=_["start_4"].format(
                         message.from_user.first_name,
                         app.mention,
