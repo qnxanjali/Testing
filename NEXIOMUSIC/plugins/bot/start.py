@@ -32,22 +32,20 @@ STICKERS = [
 ]
 
 NEXIO = [
-    "https://graph.org/file/e509753cf069de86e52f8.jpg",
-    "https://graph.org/file/babb71b593f36549218ce.jpg",
-    "https://graph.org/file/4a254d425fb4bf09b7470.jpg",
-    "https://graph.org/file/51f37e3c2d4aaff5cf80e.jpg",
-    "https://graph.org/file/df01978f91c14b16292f1.jpg",
-    "https://graph.org/file/a6e3e9d54c8b2e01787b6.jpg",
-    "https://graph.org/file/49bcbc23be713fbe06bac.jpg",
-    "https://graph.org/file/809651f9be99ee2bf76ab.jpg",
-    "https://graph.org/file/134c9f52f4ba0f7691cd1.jpg",
-    "https://graph.org/file/4b5c2174d7f38b4b4abd7.jpg",
-    "https://graph.org/file/80feff5bb4a03cf331945.jpg",
-    "https://graph.org/file/0379defeb51910065beac.jpg",
-    "https://graph.org/file/323b07bccd5e5e1f81f61.jpg",
-    "https://graph.org/file/cbe5c31b9ea5220b17969.jpg",
-    "https://graph.org/file/1a4e7071b3e64c620e003.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
+    "https://files.catbox.moe/t1jsp2.jpg",
     ]
+
+async def delete_sticker_after_delay(message, delay):
+    await asyncio.sleep(delay)
+    await message.delete()
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
