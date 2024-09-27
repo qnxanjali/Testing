@@ -24,6 +24,12 @@ from NEXIOMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
+STICKER = [
+    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
+    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
+    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
+    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
+]
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
@@ -34,7 +40,7 @@ async def start_pm(client, message: Message, _):
         if name[0:4] == "help":
             keyboard = help_pannel(_)
             sticker_msg = await message.reply_sticker(
-                sticker=random.choice(config.STICKER),  # Random sticker from the list
+                sticker=random.choice(STICKER),  # Random sticker from the list
             )
             await asyncio.sleep(0.5)  # the sticker will be deleted after 0.5 seconds
             await sticker_msg.delete()  # sticker deleted
@@ -106,7 +112,7 @@ async def start_pm(client, message: Message, _):
 
         # First start_2 send photo with caption
         sticker_msg = await message.reply_sticker(
-                sticker=random.choice(config.STICKER),  # Random sticker from the list
+                sticker=random.choice(STICKER),  # Random sticker from the list
             )
         await asyncio.sleep(0.5)  # the sticker will be deleted after 0.5 seconds
         await sticker_msg.delete()  # delete the sticker message
