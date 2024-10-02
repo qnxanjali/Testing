@@ -1,20 +1,23 @@
 import asyncio
-import time
 import random
+import time
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message
 from youtubesearchpython.__future__ import VideosSearch
 
 import config
 from NEXIOMUSIC import app
 from NEXIOMUSIC.misc import _boot_
 from NEXIOMUSIC.plugins.sudo.sudoers import sudoers_list
+from NEXIOMUSIC.utils import bot_sys_stats
 from NEXIOMUSIC.utils.database import (
     add_served_chat,
     add_served_user,
     blacklisted_chats,
     get_lang,
+    get_served_chats,
+    get_served_users,
     is_banned_user,
     is_on_off,
 )
@@ -24,24 +27,25 @@ from NEXIOMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
-STICKERS = [
-    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
-    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
-    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
-    "CAACAgUAAxkBAAEBc_Nm9reyuuFoy3Neq2_3KQfKNCxxXwACsRIAAk3CoVcRpQ6OPeMXSh4E",
+HIMANSHI = [
+    "https://envs.sh/WZs.jpg",
+    "https://envs.sh/WZs.jpg",
+    "https://envs.sh/WZs.jpg",
+    "https://envs.sh/WZs.jpg",
+    "https://envs.sh/WZs.jpg",
+    "https://envs.sh/WZs.jpg",
+    "https://envs.sh/WZs.jpg",
+    "https://envs.sh/WZs.jpg",
 ]
 
-NEXIO = [
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    "https://files.catbox.moe/t1jsp2.jpg",
-    ]
+STICKERS = [  
+    "CAACAgUAAxkBAAEBdnpm-CKSe_WqOslpePn3ECfb_RaE9wACsRIAAk3CoVcRpQ6OPeMXSh4E",
+    "CAACAgUAAxkBAAEBdnxm-CKSAvkd77cIkLVi22i5KetRwAACjBIAAmiswVfmvH70I9yO1B4E",
+    "CAACAgUAAxkBAAEBdn1m-CKTitpex6wRSb7XepTBL1m7hQACGBMAAgj0wVc1DtFNJKC_Ih4E",
+    "CAACAgUAAxkBAAEBdn5m-CKUm8kE8yW1wfVn93uPBvE3nwACoxMAArRPwFeUVWErgkaFyR4E",
+    "CAACAgUAAxkBAAEBdn9m-CKVC9XUkmuOW6b1gIL0Teg6HgACyREAAoz_wFeQweR6NJm6Yh4E",
+    "CAACAgUAAxkBAAEBdntm-CKSYkLSIPrQAiOxMeBfyZpGegACfRAAAlMQwVdx2UGzjxf3CR4E",
+]
 
 async def delete_sticker_after_delay(message, delay):
     await asyncio.sleep(delay)
@@ -56,24 +60,22 @@ async def start_pm(client, message: Message, _):
         if name[0:4] == "help":
             keyboard = help_pannel(_)
             sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
-            asyncio.create_task(delete_sticker_after_delay(sticker_message, 2))
-
-            return await message.reply_photo(
-                photo=random.choice(NEXIO),
+            asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
+            await message.reply_photo(
+                random.choice(HIMANSHI),
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
-        if name[0:3] == "sud":
+        elif name[0:3] == "sud":
             await sudoers_list(client=client, message=message, _=_)
             if await is_on_off(2):
-                return await app.send_message(
+                await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>๏ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>๏ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
-            return
-        if name[0:3] == "inf":
+        elif name[0:3] == "inf":
             m = await message.reply_text("🔎")
-            query = (str(name)).replace("info_", "", 1)
+            query = str(name).replace("info_", "", 1)
             query = f"https://www.youtube.com/watch?v={query}"
             results = VideosSearch(query, limit=1)
             for result in (await results.next())["result"]:
@@ -85,62 +87,65 @@ async def start_pm(client, message: Message, _):
                 channel = result["channel"]["name"]
                 link = result["link"]
                 published = result["publishedTime"]
-                searched_text = _["start_7"].format(
+            searched_text = _["start_6"].format(
                 title, duration, views, published, channellink, channel, app.mention
             )
             key = InlineKeyboardMarkup(
                 [
-                [
-                        InlineKeyboardButton(text=_["S_B_9"], url=config.SUPPORT_CHAT),
+                    [
                         InlineKeyboardButton(text=_["S_B_8"], url=link),
-                ],
+                        InlineKeyboardButton(text=_["S_B_9"], url=config.SUPPORT_CHAT),
+                    ],
                 ]
             )
             await m.delete()
-            await app.send_photo(chat_id=message.chat.id, photo=thumbnail, caption=searched_text, reply_markup=key,
+            await app.send_video(
+                chat_id=message.chat.id,
+                video=thumbnail,
+                caption=searched_text,
+                reply_markup=key,
             )
             if await is_on_off(2):
-                return await app.send_message(chat_id=config.LOGGER_ID,
-                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                await app.send_message(
+                    chat_id=config.LOGGER_ID,
+                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>๏ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>๏ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
         out = private_panel(_)
         nexio = await message.reply_text(f"**■□□□□□□□□□ 1⩇%**")
-        await nexio.edit_text(f"**■■□□□□□□□□ 2⩇%**")
         await nexio.edit_text(f"**■■■□□□□□□□ 3⩇%**")
-        await nexio.edit_text(f"**■■■■□□□□□□ 4⩇%**")
         await nexio.edit_text(f"**■■■■■□□□□□ 5⩇%**")
-        await nexio.edit_text(f"**■■■■■■□□□□ 6⩇%️**")
         await nexio.edit_text(f"**■■■■■■■□□□ 7⩇%**")
-        await nexio.edit_text(f"**■■■■■■■■□□ 8⩇%**")
         await nexio.edit_text(f"**■■■■■■■■■□ 9⩇%**")
         await nexio.edit_text(f"**■■■■■■■■■■ 1⩇⩇%**")
         await nexio.edit_text(f"**𝗟𝗲𝘁'𝘀 𝗚𝗼 𝗕𝗮𝗯𝘆..🌸**")
         await nexio.delete()
-
+        
         sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
-        asyncio.create_task(delete_sticker_after_delay(sticker_message, 2))
-        await message.reply_photo(photo=random.choice(NEXIO),
-        caption=_["start_2"].format(message.from_user.mention),
+        asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
+        served_chats = len(await get_served_chats())
+        served_users = len(await get_served_users())
+        UP, CPU, RAM, DISK = await bot_sys_stats()
+        await message.reply_photo(
+            random.choice(HIMANSHI),
+            caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM, served_users, served_chats),
+            reply_markup=InlineKeyboardMarkup(out),
         )
-
-        await message.reply_text(text=_["start_3"].format(app.mention),
-        reply_markup=InlineKeyboardMarkup(out),
-        )
-
         if await is_on_off(2):
-            return await app.send_message(chat_id=config.LOGGER_ID, text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+            await app.send_message(
+                chat_id=config.LOGGER_ID,
+                text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>๏ ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>๏ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
-
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
-    await message.reply_photo(photo=random.choice(NEXIO),
-    caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
-    reply_markup=InlineKeyboardMarkup(out),
+    await message.reply_photo(
+        random.choice(HIMANSHI),
+        caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
+        reply_markup=InlineKeyboardMarkup(out),
     )
     return await add_served_chat(message.chat.id)
 
@@ -157,11 +162,11 @@ async def welcome(client, message: Message):
                     pass
             if member.id == app.id:
                 if message.chat.type != ChatType.SUPERGROUP:
-                    await message.reply_text(_["start_5"])
+                    await message.reply_text(_["start_4"])
                     return await app.leave_chat(message.chat.id)
                 if message.chat.id in await blacklisted_chats():
                     await message.reply_text(
-                        _["start_6"].format(
+                        _["start_5"].format(
                             app.mention,
                             f"https://t.me/{app.username}?start=sudolist",
                             config.SUPPORT_CHAT,
@@ -171,9 +176,10 @@ async def welcome(client, message: Message):
                     return await app.leave_chat(message.chat.id)
 
                 out = start_panel(_)
-                await message.reply_photo(photo=random.choice(NEXIO),
-                    caption=_["start_4"].format(
-                        message.from_user.first_name,
+                await message.reply_photo(
+                    random.choice(HIMANSHI),
+                    caption=_["start_3"].format(
+                        message.from_user.mention,
                         app.mention,
                         message.chat.title,
                         app.mention,
