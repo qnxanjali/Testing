@@ -27,21 +27,6 @@ from NEXIOMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
-PH_ON = ["https://telegra.ph/file/010c936d41e9da782780f.jpg",
-         "https://telegra.ph/file/e17740f22da1fe4162e43.jpg",
-         "https://telegra.ph/file/38ae0f7b919a8995c7f29.jpg",
-         "https://telegra.ph/file/9fbc748ad0d552e403ba6.jpg",
-         "https://telegra.ph/file/2433c1b98d2621623ead3.jpg",
-         "https://telegra.ph/file/62f26ca46103beee9a0d5.jpg",
-         "https://telegra.ph/file/d3e855bc548a1ce9649e7.jpg",
-         "https://telegra.ph/file/b860df3e144c2208a7e5a.jpg",
-         "https://telegra.ph/file/33591be403ae3eaae7217.jpg",
-         "https://telegra.ph/file/a9d91437d795b0ae55af8.jpg",
-         "https://telegra.ph/file/1891e318996f393e0aebc.jpg",
-         "https://telegra.ph/file/84492c50c7a8a8d2603dc.jpg",
-         "https://telegra.ph/file/ae843fb1e51218521e95b.jpg",
-         "https://telegra.ph/file/0b98ff58d75e85438d3a0.jpg"]
-
 NEXIO_VD = ["https://telegra.ph/file/89c5023101b65f21fb401.mp4",
           "https://telegra.ph/file/bbc914cce6cce7f607641.mp4",
           "https://telegra.ph/file/abc578ecc222d28a861ba.mp4",
@@ -55,7 +40,7 @@ NEXIO_VD = ["https://telegra.ph/file/89c5023101b65f21fb401.mp4",
           "https://telegra.ph/file/f1b1754fc9d01998f24df.mp4",
           "https://telegra.ph/file/421ee22ed492a7b8ce101.mp4"]
 
-HIMANSHI = [
+HIMANSHI_PH = [
     "https://files.catbox.moe/jrupn9.jpg",
     "https://files.catbox.moe/5z141p.jpg",
     "https://files.catbox.moe/fnl0h7.jpg",
