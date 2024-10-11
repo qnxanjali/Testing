@@ -27,6 +27,34 @@ from NEXIOMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
+PH_ON = ["https://telegra.ph/file/010c936d41e9da782780f.jpg",
+         "https://telegra.ph/file/e17740f22da1fe4162e43.jpg",
+         "https://telegra.ph/file/38ae0f7b919a8995c7f29.jpg",
+         "https://telegra.ph/file/9fbc748ad0d552e403ba6.jpg",
+         "https://telegra.ph/file/2433c1b98d2621623ead3.jpg",
+         "https://telegra.ph/file/62f26ca46103beee9a0d5.jpg",
+         "https://telegra.ph/file/d3e855bc548a1ce9649e7.jpg",
+         "https://telegra.ph/file/b860df3e144c2208a7e5a.jpg",
+         "https://telegra.ph/file/33591be403ae3eaae7217.jpg",
+         "https://telegra.ph/file/a9d91437d795b0ae55af8.jpg",
+         "https://telegra.ph/file/1891e318996f393e0aebc.jpg",
+         "https://telegra.ph/file/84492c50c7a8a8d2603dc.jpg",
+         "https://telegra.ph/file/ae843fb1e51218521e95b.jpg",
+         "https://telegra.ph/file/0b98ff58d75e85438d3a0.jpg"]
+
+NEXIO_VD = ["https://telegra.ph/file/89c5023101b65f21fb401.mp4",
+          "https://telegra.ph/file/bbc914cce6cce7f607641.mp4",
+          "https://telegra.ph/file/abc578ecc222d28a861ba.mp4",
+          "https://telegra.ph/file/065f40352707e9b5b7c15.mp4",
+          "https://telegra.ph/file/52ceaf02eae7eed6c9fff.mp4",
+          "https://telegra.ph/file/299108f6ac08f4e65e47a.mp4",
+          "https://telegra.ph/file/7a4e08bd04d628de71fc1.mp4",
+          "https://telegra.ph/file/0ad8b932fe5f7684f941c.mp4",
+          "https://telegra.ph/file/95ebe2065cfb1ac324a1c.mp4",
+          "https://telegra.ph/file/98cf22ccb987f9fedac5e.mp4",
+          "https://telegra.ph/file/f1b1754fc9d01998f24df.mp4",
+          "https://telegra.ph/file/421ee22ed492a7b8ce101.mp4"]
+
 HIMANSHI = [
     "https://files.catbox.moe/jrupn9.jpg",
     "https://files.catbox.moe/5z141p.jpg",
@@ -66,10 +94,8 @@ async def start_pm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
-            asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
-            await message.reply_photo(
-                random.choice(HIMANSHI),
+            await message.reply_video(
+                random.choice(NEXIO_VD),
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
@@ -119,22 +145,11 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
-        nexio = await message.reply_text(f"**■□□□□□□□□□ 1⩇%**")
-        await nexio.edit_text(f"**■■■□□□□□□□ 3⩇%**")
-        await nexio.edit_text(f"**■■■■■□□□□□ 5⩇%**")
-        await nexio.edit_text(f"**■■■■■■■□□□ 7⩇%**")
-        await nexio.edit_text(f"**■■■■■■■■■□ 9⩇%**")
-        await nexio.edit_text(f"**■■■■■■■■■■ 1⩇⩇%**")
-        await nexio.edit_text(f"**𝗟𝗲𝘁'𝘀 𝗚𝗼 𝗕𝗮𝗯𝘆..🌸**")
-        await nexio.delete()
-        
-        sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
-        asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
         served_chats = len(await get_served_chats())
         served_users = len(await get_served_users())
         UP, CPU, RAM, DISK = await bot_sys_stats()
-        await message.reply_photo(
-            random.choice(HIMANSHI),
+        await message.reply_video(
+            random.choice(NEXIO_VD),
             caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM, served_users, served_chats),
             reply_markup=InlineKeyboardMarkup(out),
         )
@@ -149,8 +164,8 @@ async def start_pm(client, message: Message, _):
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
-    await message.reply_photo(
-        random.choice(HIMANSHI),
+    await message.reply_video(
+        random.choice(NEXIO_VD),
         caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
     )
