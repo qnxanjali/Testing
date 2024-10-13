@@ -16,8 +16,12 @@ class BUTTONS(object):
         ]
     
     SBUTTON = [
+ 
         [
-            InlineKeyboardButton("ᴍσσɴ ʜᴜɢ", url="https://t.me/MOON_HUG"),
+            InlineKeyboardButton("𝝩‌𝞊‌𝝶𝘀𝝸𝝾‌𝝶‌ 𝗧𝞊‌𝗰𝗵", url="https://t.me/THE_TENSION"),
+        ],
+        [
+            InlineKeyboardButton("ᴍσσɴ ʜᴜɢ", url="https://t.me/MOON_HUB"),
             InlineKeyboardButton("ɴєxɪσ ᴛєᴄʜ", url="https://t.me/NEXIO_TECH"),
         ],
         [
