@@ -5,6 +5,7 @@ from pyrogram.types import InlineKeyboardButton
 from NEXIOMUSIC.utils.formatters import time_to_seconds
 
 import config
+
 from NEXIOMUSIC import app
 
 def track_markup(_, videoid, user_id, channel, fplay):
@@ -19,37 +20,36 @@ def track_markup(_, videoid, user_id, channel, fplay):
         ]
     return buttons
 
-
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
-    if 0 < umm <= 10:
-        bar = "◉—————————"
-    elif 10 < umm < 20:
-        bar = "—◉————————"
-    elif 20 <= umm < 30:
-        bar = "——◉———————"
-    elif 30 <= umm < 40:
-        bar = "———◉——————"
-    elif 40 <= umm < 50:
-        bar = "————◉—————"
-    elif 50 <= umm < 60:
-        bar = "—————◉————"
-    elif 60 <= umm < 70:
-        bar = "——————◉———"
-    elif 70 <= umm < 80:
-        bar = "———————◉——"
-    elif 80 <= umm < 95:
-        bar = "————————◉—"
+    if 10 < umm <= 20:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
+    elif 20 <= umm < 35:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
+    elif 35 <= umm < 50:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
+    elif 50 <= umm < 75:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙️"
+    elif 75 <= umm < 80:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
+    elif 80 <= umm < 85:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
+    elif 85 <= umm < 90:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
+    elif 90 <= umm < 95:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙️"
+    elif 95 <= umm < 100:
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
     else:
-        bar = "—————————◉"
+        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
+                text=f"{bar}",
+                url=f"https://t.me/{app.username}?startgroup=true",
             )
         ],
         [   
