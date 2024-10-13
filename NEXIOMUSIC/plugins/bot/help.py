@@ -108,33 +108,80 @@ async def helper_cb(client, CallbackQuery, _):
 # MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | 
 #------------------------------------------------------------------------------------------------------------------------
 
-@app.on_callback_query(filters.regex("MANAGEMENT_CP") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("MAIN_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_M, reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON))
+    await CallbackQuery.edit_message_text(Helper.HELP_MAIN, reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON))
     
         
-@app.on_callback_query(filters.regex('MANAGEMENT_BACK'))      
+@app.on_callback_query(filters.regex('MAIN_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = InlineKeyboardMarkup(
     [
     [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MANAGEMENT_CP")
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MAIN_CP")
     ]
     ]
     )
-    if cb == "MANAGEMENT":
+    if cb == "MAIN":
         await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
     else:
         await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
 
 
+#------------------------------------------------------------------------------------------------------------------------
+# SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT | SUPPORT |
+#------------------------------------------------------------------------------------------------------------------------
 
+@app.on_callback_query(filters.regex("SUPPORT_CP") & ~BANNED_USERS)
+async def helper_cb(client, CallbackQuery):
+    await CallbackQuery.edit_message_text(Helper.HELP_SUPPORT, reply_markup=InlineKeyboardMarkup(BUTTONS.SBUTTON))
+    
+        
+@app.on_callback_query(filters.regex('SUPPORT_BACK'))      
+async def mb_plugin_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = InlineKeyboardMarkup(
+    [
+    [
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"SUPPORT_CP")
+    ]
+    ]
+    )
+    if cb == "SUPPORT":
+        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+    else:
+        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
+
+
+#------------------------------------------------------------------------------------------------------------------------
+# ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT | ABOUT |
+#------------------------------------------------------------------------------------------------------------------------
+
+@app.on_callback_query(filters.regex("ABOUT_CP") & ~BANNED_USERS)
+async def helper_cb(client, CallbackQuery):
+    await CallbackQuery.edit_message_text(Helper.HELP_ABOUT, reply_markup=InlineKeyboardMarkup(BUTTONS.ABUTTON))
+    
+        
+@app.on_callback_query(filters.regex('ABOUT_BACK'))      
+async def mb_plugin_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = InlineKeyboardMarkup(
+    [
+    [
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"ABOUT_CP")
+    ]
+    ]
+    )
+    if cb == "ABOUT":
+        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+    else:
+        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
 
 
 #------------------------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------------
-
-
