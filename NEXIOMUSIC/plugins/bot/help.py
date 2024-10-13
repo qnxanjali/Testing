@@ -9,6 +9,8 @@ from NEXIOMUSIC.utils.decorators.language import LanguageStart, languageCB
 from NEXIOMUSIC.utils.inline.help import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
+from NEXIOMUSIC.help.buttons import BUTTONS
+from NEXIOMUSIC.help.helper import Helper
 
 NEXIO_VD = ["https://telegra.ph/file/89c5023101b65f21fb401.mp4",
           "https://telegra.ph/file/bbc914cce6cce7f607641.mp4",
@@ -99,3 +101,40 @@ async def helper_cb(client, CallbackQuery, _):
         await CallbackQuery.edit_message_text(helpers.HELP_14, reply_markup=keyboard)
     elif cb == "hb15":
         await CallbackQuery.edit_message_text(helpers.HELP_15, reply_markup=keyboard)
+
+
+
+#------------------------------------------------------------------------------------------------------------------------
+# MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | 
+#------------------------------------------------------------------------------------------------------------------------
+
+@app.on_callback_query(filters.regex("MANAGEMENT_CP") & ~BANNED_USERS)
+async def helper_cb(client, CallbackQuery):
+    await CallbackQuery.edit_message_text(Helper.HELP_M, reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON))
+    
+        
+@app.on_callback_query(filters.regex('MANAGEMENT_BACK'))      
+async def mb_plugin_button(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    keyboard = InlineKeyboardMarkup(
+    [
+    [
+    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"MANAGEMENT_CP")
+    ]
+    ]
+    )
+    if cb == "MANAGEMENT":
+        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+    else:
+        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
+
+
+
+
+
+#------------------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------
+
+
