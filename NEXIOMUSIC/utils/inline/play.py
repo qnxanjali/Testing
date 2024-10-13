@@ -22,35 +22,9 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
-    duration_sec = time_to_seconds(dur)
-    percentage = (played_sec / duration_sec) * 100
-    umm = math.floor(percentage)
-    if 10 < umm <= 20:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
-    elif 20 <= umm < 35:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
-    elif 35 <= umm < 50:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
-    elif 50 <= umm < 75:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙️"
-    elif 75 <= umm < 80:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
-    elif 80 <= umm < 85:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
-    elif 85 <= umm < 90:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
-    elif 90 <= umm < 95:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙️"
-    elif 95 <= umm < 100:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
-    else:
-        bar = "✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙"
     buttons = [
         [
-            InlineKeyboardButton(
-                text=f"{bar}",
-                url=f"https://t.me/{app.username}?startgroup=true",
-            )
+            InlineKeyboardButton(text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙",url=f"https://t.me/{app.username}?startgroup=true",)
         ],
         [   
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
