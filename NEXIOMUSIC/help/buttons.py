@@ -18,15 +18,15 @@ class BUTTONS(object):
     SBUTTON = [
  
         [
-            InlineKeyboardButton("𝝩‌𝞊‌𝝶𝘀𝝸𝝾‌𝝶‌ 𝗧𝞊‌𝗰𝗵", url="https://t.me/THE_TENSION"),
+            InlineKeyboardButton("sᴧηᴧᴛᴧηɪ ᴛєᴄʜ", url="https://t.me/ALL_SANATANI_BOT"),
         ],
         [
-            InlineKeyboardButton("ᴍσσɴ ʜᴜɢ", url="https://t.me/MOON_HUB"),
-            InlineKeyboardButton("ɴєxɪσ ᴛєᴄʜ", url="https://t.me/NEXIO_TECH"),
+            InlineKeyboardButton("ϻσση ʜυɢ", url="https://t.me/MOON_HUB"),
+            InlineKeyboardButton("ηєxɪσ ᴛєᴄʜ", url="https://t.me/NEXIO_TECH"),
         ],
         [
-            InlineKeyboardButton("sυᴘᴘσʀᴛ", url="https://t.me/SANATANI_SUPPORT"),
-            InlineKeyboardButton("υᴘᴅᴧᴛєs", url="https://t.me/ALL_SANATANI_BOT"),
+            InlineKeyboardButton("ᴄʜᴧᴛ ɢᴄ", url="https://t.me/SANATANI_SUPPORT"),
+            InlineKeyboardButton("ᴛєηsɪση ᴛєᴄʜ", url="https://t.me/THE_TENSION"),
         ],
         [
             InlineKeyboardButton("⌯ ʙᴧᴄᴋ ᴛσ ʜσϻє ⌯", callback_data="settingsback_helper"),
@@ -36,12 +36,12 @@ class BUTTONS(object):
     
     ABUTTON = [
         [
-            InlineKeyboardButton("ᴏᴡɴᴇʀ", url="https://t.me/V_VIP_OWNER"),
-            InlineKeyboardButton("ʜᴇʟᴘ | ɪɴғᴏ", callback_data="settings_back_helper"),
+            InlineKeyboardButton("ᴧʙσυᴛ", url="https://t.me/II_SANATANI_II"),
+            InlineKeyboardButton("ʜєʟᴘ | ɪηғσ", callback_data="settings_back_helper"),
         ],
         [
-            InlineKeyboardButton("ʙᴀsɪᴄ ɢᴜɪᴅᴇ", callback_data="ABOUT_BACK HELP_GUIDE"),
-            InlineKeyboardButton("ᴅᴏɴᴀᴛᴇ", callback_data="ABOUT_BACK HELP_DONATE"),
+            InlineKeyboardButton("ʙᴧsɪᴄ ɢυɪᴅє", callback_data="ABOUT_BACK HELP_GUIDE"),
+            InlineKeyboardButton("ᴅσηᴧᴛє", callback_data="ABOUT_BACK HELP_DONATE"),
         ],
         [
             InlineKeyboardButton("⌯ ʙᴧᴄᴋ ᴛσ ʜσϻє ⌯", callback_data="settingsback_helper"),
