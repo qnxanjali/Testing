@@ -18,7 +18,7 @@ class BUTTONS(object):
     SBUTTON = [
  
         [
-            InlineKeyboardButton("sᴧηᴧᴛᴧηɪ ᴛєᴄʜ", url="https://t.me/ALL_SANATANI_BOT"),
+            InlineKeyboardButton("sᴧηᴧᴛᴧηɪ ᴛєᴄʜ", url="https://t.me/SANATANI_TECH"),
         ],
         [
             InlineKeyboardButton("ϻσση ʜυɢ", url="https://t.me/MOON_HUB"),
