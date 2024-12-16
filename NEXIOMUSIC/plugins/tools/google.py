@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto, Message
-from TanuMusic import app
+from NEXIOMUSIC import app
 
 # Function to fetch images from Google Images
 def fetch_google_images(query, num_images=7):
