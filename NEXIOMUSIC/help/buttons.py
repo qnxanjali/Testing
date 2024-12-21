@@ -7,7 +7,7 @@ from NEXIOMUSIC import app
 class BUTTONS(object):
     MBUTTON = [
         [
-            InlineKeyboardButton("˹ 🇸ʌᷟᴄᷣʜɪ֟፝η ˼", url="https://t.me/V_VIP_OWNER")
+            InlineKeyboardButton("𝔱𝔥𝔢 𝙰𝙰𝙳𝙸𝚃𝚈𝙰", url="https://t.me/SMOKING_BOY_143")
         ],
         [
             InlineKeyboardButton("⌯ ʙᴧᴄᴋ ᴛσ ʜσϻє ⌯", callback_data="settingsback_helper"),
@@ -18,15 +18,8 @@ class BUTTONS(object):
     SBUTTON = [
  
         [
-            InlineKeyboardButton("sᴧηᴧᴛᴧηɪ ᴛєᴄʜ", url="https://t.me/SANATANI_TECH"),
-        ],
-        [
-            InlineKeyboardButton("ϻσση ʜυɢ", url="https://t.me/MOON_HUB"),
-            InlineKeyboardButton("ηєxɪσ ᴛєᴄʜ", url="https://t.me/NEXIO_TECH"),
-        ],
-        [
-            InlineKeyboardButton("ᴄʜᴧᴛ ɢᴄ", url="https://t.me/SANATANI_SUPPORT"),
-            InlineKeyboardButton("ᴛєηsɪση ᴛєᴄʜ", url="https://t.me/THE_TENSION"),
+            InlineKeyboardButton("ᴄʜᴧᴛ ɢᴄ", url="https://t.me/+n9oxbrpBBqE5NjY1"),
+            InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url="https://t.me/THE_IAS_VISION"),
         ],
         [
             InlineKeyboardButton("⌯ ʙᴧᴄᴋ ᴛσ ʜσϻє ⌯", callback_data="settingsback_helper"),
@@ -36,7 +29,7 @@ class BUTTONS(object):
     
     ABUTTON = [
         [
-            InlineKeyboardButton("ᴧʙσυᴛ", url="https://t.me/II_SANATANI_II"),
+            InlineKeyboardButton("ᴧʙσυᴛ", url="https://t.me/THE_IAS_VISION"),
             InlineKeyboardButton("ʜєʟᴘ | ɪηғσ", callback_data="settings_back_helper"),
         ],
         [
