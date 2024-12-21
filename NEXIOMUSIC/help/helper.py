@@ -10,15 +10,15 @@ class Helper(object):
     HELP_SUPPORT = '''
 **❖ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ
 
-❍ ɪғ ʏᴏᴜ ғɪɴᴅ ᴀɴʏ ᴇʀʀᴏʀ ᴏʀ ʙᴜɢ ᴏɴ ʙᴏᴛ ᴏʀ ᴡᴀɴᴛ ᴛᴏ ɢɪᴠᴇ ᴀɴʏ ғᴇᴇᴅʙᴀᴄᴋ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ ᴛʜᴇɴ ʏᴏᴜ ᴀʀᴇ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/sanatani_support)**
+❍ ɪғ ʏᴏᴜ ғɪɴᴅ ᴀɴʏ ᴇʀʀᴏʀ ᴏʀ ʙᴜɢ ᴏɴ ʙᴏᴛ ᴏʀ ᴡᴀɴᴛ ᴛᴏ ɢɪᴠᴇ ᴀɴʏ ғᴇᴇᴅʙᴀᴄᴋ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ ᴛʜᴇɴ ʏᴏᴜ ᴀʀᴇ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/+n9oxbrpBBqE5NjY1)**
 '''
 
     HELP_ABOUT = '''
-**❖ ๏ ʟᴇᴛ's ɪɴᴛʀᴏᴅᴜᴄᴇ [sᴀɴᴀᴛᴀɴɪ-ᴍᴜsɪᴄ](https://t.me/All_sanatani_bot) ʙᴏᴛ
+**❖ ๏ ʟᴇᴛ's ɪɴᴛʀᴏᴅᴜᴄᴇ [sᴀɴᴀᴛᴀɴɪ-ᴍᴜsɪᴄ](https://t.me/THE_IAS_VISION) ʙᴏᴛ
 
-➻ [sᴀɴᴀᴛᴀɴɪ-ᴍᴜsɪᴄ](https://t.me/All_sanatani_bot)  ɪs ᴏɴᴇ ᴏғ ᴛʜᴇ ʙᴇsᴛ ᴍᴜsɪᴄ | ᴠɪᴅᴇᴏ sᴛꝛᴇᴀᴍɪɴɢ ʙᴏᴛ ᴏɴ ᴛᴇʟᴇɢꝛᴧᴍ ғᴏꝛ ʏᴏᴜꝛ ɢꝛᴏᴜᴘs ᴀɴᴅ ᴄʜᴧɴɴᴇʟ
+➻ [sᴀɴᴀᴛᴀɴɪ-ᴍᴜsɪᴄ](https://t.me/THE_IAS_VISION)  ɪs ᴏɴᴇ ᴏғ ᴛʜᴇ ʙᴇsᴛ ᴍᴜsɪᴄ | ᴠɪᴅᴇᴏ sᴛꝛᴇᴀᴍɪɴɢ ʙᴏᴛ ᴏɴ ᴛᴇʟᴇɢꝛᴧᴍ ғᴏꝛ ʏᴏᴜꝛ ɢꝛᴏᴜᴘs ᴀɴᴅ ᴄʜᴧɴɴᴇʟ
 
-๏ ᴡʜʏ [˹ sᴀɴᴀᴛᴀɴɪ ᴍᴜsɪᴄ ˼](https://t.me/All_sanatani_bot) ɪs ʙᴇsᴛ ?
+๏ ᴡʜʏ [˹ sᴀɴᴀᴛᴀɴɪ ᴍᴜsɪᴄ ˼](https://t.me/THE_IAS_VISION) ɪs ʙᴇsᴛ ?
 
 ➻ ʙᴇsᴛ sᴏᴜɴᴅ ǫᴜᴀʟɪᴛʏ
 ➻ ᴍᴜsɪᴄ ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs
@@ -32,12 +32,12 @@ class Helper(object):
 
 ᴀʟʟ ᴛʜᴇ ғᴇᴀᴛᴜʀᴇs ᴀʀᴇ ᴡᴏʀᴋɪɴɢ ғɪɴᴇ
 
-❖ JOIN [CHANNEL](https://t.me/All_sanatani_bot) |×| [GROUP](https://t.me/sanatani_support)**
+❖ JOIN [CHANNEL](https://t.me/THE_IAS_VISION) |×| [GROUP](https://t.me/+n9oxbrpBBqE5NjY1)**
 '''
 
 
     HELP_GUIDE = '''
-**❖ ʜᴇʏ ᴅᴇᴀʀ ᴛʜɪs ɪs ᴀ ǫᴜɪᴄᴋ ᴀɴᴅ sɪᴍᴘʟᴇ ɢᴜɪᴅᴇ ᴛᴏ ᴜsɪɴɢ [sᴀɴᴀᴛᴀɴɪ-ᴍᴜsɪᴄ](https://t.me/All_sanatani_bot)
+**❖ ʜᴇʏ ᴅᴇᴀʀ ᴛʜɪs ɪs ᴀ ǫᴜɪᴄᴋ ᴀɴᴅ sɪᴍᴘʟᴇ ɢᴜɪᴅᴇ ᴛᴏ ᴜsɪɴɢ [sᴀɴᴀᴛᴀɴɪ-ᴍᴜsɪᴄ](https://t.me/THE_IAS_VISION)
 
 1) ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ 'ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ' ʙᴜᴛᴛᴏɴ
 2) sᴇʟᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɴᴀᴍᴇ
